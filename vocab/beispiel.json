@@ -1,0 +1,67 @@
+{
+  "id": "beispiel",
+  "name": "Beispiel – Begrüßungen & Basics",
+  "created": "2026-05-13",
+  "cards": [
+    {
+      "chinese": "你好",
+      "pinyin": "nǐ hǎo",
+      "english": "Hallo",
+      "example": "你好，我叫李明。"
+    },
+    {
+      "chinese": "谢谢",
+      "pinyin": "xiè xie",
+      "english": "Danke",
+      "example": "谢谢你的帮助。"
+    },
+    {
+      "chinese": "对不起",
+      "pinyin": "duì bu qǐ",
+      "english": "Entschuldigung",
+      "example": "对不起，我迟到了。"
+    },
+    {
+      "chinese": "没关系",
+      "pinyin": "méi guān xi",
+      "english": "Macht nichts / Kein Problem",
+      "example": "没关系，不用担心。"
+    },
+    {
+      "chinese": "再见",
+      "pinyin": "zài jiàn",
+      "english": "Auf Wiedersehen",
+      "example": "再见，明天见！"
+    },
+    {
+      "chinese": "我叫",
+      "pinyin": "wǒ jiào",
+      "english": "Ich heiße",
+      "example": "我叫王芳，你呢？"
+    },
+    {
+      "chinese": "你好吗",
+      "pinyin": "nǐ hǎo ma",
+      "english": "Wie geht es dir?",
+      "example": "你好吗？我很好。"
+    },
+    {
+      "chinese": "很好",
+      "pinyin": "hěn hǎo",
+      "english": "Sehr gut",
+      "example": "我很好，谢谢。"
+    },
+    {
+      "chinese": "请",
+      "pinyin": "qǐng",
+      "english": "Bitte",
+      "example": "请坐！"
+    },
+    {
+      "chinese": "是",
+      "pinyin": "shì",
+      "english": "Ja / sein",
+      "example": "我是德国人。"
+    }
+  ]
+}

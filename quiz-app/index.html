@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vokabeltrainer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- SCREEN: Home -->
+  <div id="screen-home" class="screen active">
+    <header>
+      <h1><span>Vokabeltrainer</span></h1>
+      <p class="subtitle">Deine Chinesisch-Lernkarten</p>
+    </header>
+
+    <section class="sets-section">
+      <div class="sets-header">
+        <h2>Vokabel-Sets</h2>
+        <label class="btn-import" title="JSON-Datei laden">
+          + Set laden
+          <input type="file" id="file-import" accept=".json" multiple hidden>
+        </label>
+      </div>
+      <div id="sets-list" class="sets-list">
+        <p class="empty-hint">Noch kein Set geladen.<br>Klicke auf „+ Set laden" um eine vocab/*.json Datei zu importieren.</p>
+      </div>
+    </section>
+
+    <section class="stats-section" id="global-stats" style="display:none">
+      <div class="stats-row-top">
+        <div>
+          <h2>Gesamt-Fortschritt</h2>
+          <div class="stat-row">
+            <span id="stat-total">0</span> Karten &nbsp;·&nbsp;
+            <span id="stat-learned">0</span> gelernt &nbsp;·&nbsp;
+            <span id="stat-due">0</span> fällig
+          </div>
+          <div id="stat-phases" class="phase-row"></div>
+        </div>
+        <button class="btn-save" onclick="saveProgressFile()" title="Fortschritt als Datei speichern">
+          ↓ Speichern
+        </button>
+      </div>
+      <div id="save-hint" class="save-hint" style="display:none">
+        Speichere die Datei als <code>progress/progress.json</code> im Repo-Ordner.
+      </div>
+    </section>
+
+    <!-- GRAMMAR SECTION -->
+    <section class="grammar-section">
+      <div class="grammar-heading">
+        Grammatik
+        <span class="grammar-subtitle">SIP Chinesisch 1 · Lektionen 1–3</span>
+      </div>
+
+      <details class="gitem">
+        <summary>
+          <span class="gtag gtag-g">G</span>
+          Zahlen 1–30
+        </summary>
+        <div class="gnum-grid">
+          <div class="gnum-row"><span class="gnum-n">1</span><span class="gnum-py">yī</span><span class="gnum-de">eins</span></div>
+          <div class="gnum-row"><span class="gnum-n">2</span><span class="gnum-py">èr</span><span class="gnum-de">zwei</span></div>
+          <div class="gnum-row"><span class="gnum-n">3</span><span class="gnum-py">sān</span><span class="gnum-de">drei</span></div>
+          <div class="gnum-row"><span class="gnum-n">4</span><span class="gnum-py">sì</span><span class="gnum-de">vier</span></div>
+          <div class="gnum-row"><span class="gnum-n">5</span><span class="gnum-py">wǔ</span><span class="gnum-de">fünf</span></div>
+          <div class="gnum-row"><span class="gnum-n">6</span><span class="gnum-py">liù</span><span class="gnum-de">sechs</span></div>
+          <div class="gnum-row"><span class="gnum-n">7</span><span class="gnum-py">qī</span><span class="gnum-de">sieben</span></div>
+          <div class="gnum-row"><span class="gnum-n">8</span><span class="gnum-py">bā</span><span class="gnum-de">acht</span></div>
+          <div class="gnum-row"><span class="gnum-n">9</span><span class="gnum-py">jiǔ</span><span class="gnum-de">neun</span></div>
+          <div class="gnum-row"><span class="gnum-n">10</span><span class="gnum-py">shí</span><span class="gnum-de">zehn</span></div>
+          <div class="gnum-row"><span class="gnum-n">11</span><span class="gnum-py">shíyī</span><span class="gnum-de">elf</span></div>
+          <div class="gnum-row"><span class="gnum-n">12</span><span class="gnum-py">shíèr</span><span class="gnum-de">zwölf</span></div>
+          <div class="gnum-row"><span class="gnum-n">13</span><span class="gnum-py">shísān</span><span class="gnum-de">dreizehn</span></div>
+          <div class="gnum-row"><span class="gnum-n">14</span><span class="gnum-py">shísì</span><span class="gnum-de">vierzehn</span></div>
+          <div class="gnum-row"><span class="gnum-n">15</span><span class="gnum-py">shíwǔ</span><span class="gnum-de">fünfzehn</span></div>
+          <div class="gnum-row"><span class="gnum-n">16</span><span class="gnum-py">shíliù</span><span class="gnum-de">sechzehn</span></div>
+          <div class="gnum-row"><span class="gnum-n">17</span><span class="gnum-py">shíqī</span><span class="gnum-de">siebzehn</span></div>
+          <div class="gnum-row"><span class="gnum-n">18</span><span class="gnum-py">shíbā</span><span class="gnum-de">achtzehn</span></div>
+          <div class="gnum-row"><span class="gnum-n">19</span><span class="gnum-py">shíjiǔ</span><span class="gnum-de">neunzehn</span></div>
+          <div class="gnum-row"><span class="gnum-n">20</span><span class="gnum-py">èrshí</span><span class="gnum-de">zwanzig</span></div>
+          <div class="gnum-row"><span class="gnum-n">21</span><span class="gnum-py">èrshíyī</span><span class="gnum-de">einundzwanzig</span></div>
+          <div class="gnum-row"><span class="gnum-n">22</span><span class="gnum-py">èrshíèr</span><span class="gnum-de">zweiundzwanzig</span></div>
+          <div class="gnum-row"><span class="gnum-n">23</span><span class="gnum-py">èrshísān</span><span class="gnum-de">dreiundzwanzig</span></div>
+          <div class="gnum-row"><span class="gnum-n">24</span><span class="gnum-py">èrshísì</span><span class="gnum-de">vierundzwanzig</span></div>
+          <div class="gnum-row"><span class="gnum-n">25</span><span class="gnum-py">èrshíwǔ</span><span class="gnum-de">fünfundzwanzig</span></div>
+          <div class="gnum-row"><span class="gnum-n">26</span><span class="gnum-py">èrshíliù</span><span class="gnum-de">sechsundzwanzig</span></div>
+          <div class="gnum-row"><span class="gnum-n">27</span><span class="gnum-py">èrshíqī</span><span class="gnum-de">siebenundzwanzig</span></div>
+          <div class="gnum-row"><span class="gnum-n">28</span><span class="gnum-py">èrshíbā</span><span class="gnum-de">achtundzwanzig</span></div>
+          <div class="gnum-row"><span class="gnum-n">29</span><span class="gnum-py">èrshíjiǔ</span><span class="gnum-de">neunundzwanzig</span></div>
+          <div class="gnum-row"><span class="gnum-n">30</span><span class="gnum-py">sānshí</span><span class="gnum-de">dreißig</span></div>
+        </div>
+        <p class="gnote" style="margin-top:4px">Muster: 11–19 = shí + Einer · 21–29 = èrshí + Einer</p>
+      </details>
+
+      <details class="gitem">
+        <summary>
+          <span class="gtag gtag-g">G</span>
+          Grundsätze: ich bin / du bist …
+        </summary>
+        <div class="gpattern">Pronomen + shì + Nomen</div>
+        <p class="gnote">Im Chinesischen bleibt das Verb immer gleich — kein Konjugieren.</p>
+        <div class="gpron-table">
+          <div class="gpron-row"><span class="gpron-py">wǒ shì</span><span class="gpron-de">ich bin</span><span class="gpron-arr">·</span><span class="gpron-py">wǒmen shì</span><span class="gpron-de">wir sind</span></div>
+          <div class="gpron-row"><span class="gpron-py">nǐ shì</span><span class="gpron-de">du bist</span><span class="gpron-arr">·</span><span class="gpron-py">nǐmen shì</span><span class="gpron-de">ihr seid</span></div>
+          <div class="gpron-row"><span class="gpron-py">tā shì</span><span class="gpron-de">er/sie ist</span><span class="gpron-arr">·</span><span class="gpron-py">tāmen shì</span><span class="gpron-de">sie sind</span></div>
+        </div>
+        <div class="gexamples" style="margin-top:8px">
+          <div class="gex"><span class="gzh">Wǒ shì xuésheng.</span><span class="gde">Ich bin Student.</span></div>
+          <div class="gex"><span class="gzh">Nǐ shì lǎoshī ma?</span><span class="gde">Bist du Lehrer?</span></div>
+          <div class="gex"><span class="gzh">Wǒ bù shì lǎoshī.</span><span class="gde">Ich bin kein Lehrer.</span></div>
+        </div>
+      </details>
+
+      <details class="gitem">
+        <summary>
+          <span class="gtag gtag-l1">L1</span>
+          Adjektivprädikat mit <span class="gkw">hěn</span>
+        </summary>
+        <div class="gpattern">Subj. + hěn + Adjektiv</div>
+        <p class="gnote">hěn übernimmt die Rolle von „sein" vor Adjektiven — kein shì!</p>
+        <div class="gexamples">
+          <div class="gex"><span class="gzh">Wǒ hěn máng.</span><span class="gde">Ich bin beschäftigt.</span></div>
+          <div class="gex"><span class="gzh">Tā hěn è.</span><span class="gde">Er ist hungrig.</span></div>
+          <div class="gex"><span class="gzh">Nǐ hǎo ma? — Wǒ hěn hǎo.</span><span class="gde">Wie geht's? — Mir geht's gut.</span></div>
+        </div>
+      </details>
+
+      <details class="gitem">
+        <summary>
+          <span class="gtag gtag-l1">L1</span>
+          Verneinung mit <span class="gkw">bù</span>
+        </summary>
+        <div class="gpattern">Subj. + bù + Adjektiv / Verb</div>
+        <p class="gnote">bù steht direkt vor dem Adjektiv oder Verb.</p>
+        <div class="gexamples">
+          <div class="gex"><span class="gzh">Wǒ bù máng.</span><span class="gde">Ich bin nicht beschäftigt.</span></div>
+          <div class="gex"><span class="gzh">Wǒ bù è.</span><span class="gde">Ich bin nicht hungrig.</span></div>
+          <div class="gex"><span class="gzh">Wǒ bù shì lǎoshī.</span><span class="gde">Ich bin kein Lehrer.</span></div>
+        </div>
+      </details>
+
+      <details class="gitem">
+        <summary>
+          <span class="gtag gtag-l1">L1</span>
+          Ja/Nein-Fragen mit <span class="gkw">ma</span>
+        </summary>
+        <div class="gpattern">Aussagesatz + ma?</div>
+        <p class="gnote">Einfach ma ans Ende des Satzes — keine Wortstellung ändern.</p>
+        <div class="gexamples">
+          <div class="gex"><span class="gzh">Nǐ máng ma?</span><span class="gde">Bist du beschäftigt?</span></div>
+          <div class="gex"><span class="gzh">Nǐ shì lǎoshī ma?</span><span class="gde">Bist du Lehrer?</span></div>
+          <div class="gex"><span class="gzh">Nǐ rènshì tā ma?</span><span class="gde">Kennst du ihn?</span></div>
+        </div>
+      </details>
+
+      <details class="gitem">
+        <summary>
+          <span class="gtag gtag-l1">L1</span>
+          Rückfrage mit <span class="gkw">ne</span>
+        </summary>
+        <div class="gpattern">Pronomen / Name + ne?</div>
+        <p class="gnote">Kurze Rückfrage, die denselben Kontext voraussetzt.</p>
+        <div class="gexamples">
+          <div class="gex"><span class="gzh">Wǒ hěn hǎo, nǐ ne?</span><span class="gde">Mir geht's gut, und dir?</span></div>
+          <div class="gex"><span class="gzh">Wǒ bù máng, tā ne?</span><span class="gde">Ich bin nicht beschäftigt, und er?</span></div>
+        </div>
+      </details>
+
+      <details class="gitem">
+        <summary>
+          <span class="gtag gtag-l2">L2</span>
+          <span class="gkw">shì</span>-Satz: Identifikation
+        </summary>
+        <div class="gpattern">Subj. + shì + Nomen</div>
+        <p class="gnote">Für Identifikation (Beruf, Nationalität, Beziehung). Kein hěn!</p>
+        <div class="gexamples">
+          <div class="gex"><span class="gzh">Wǒ shì xuésheng.</span><span class="gde">Ich bin Student.</span></div>
+          <div class="gex"><span class="gzh">Tā shì lǎoshī.</span><span class="gde">Sie ist Lehrerin.</span></div>
+          <div class="gex"><span class="gzh">Tā shì wǒ de péngyou.</span><span class="gde">Er ist mein Freund.</span></div>
+        </div>
+      </details>
+
+      <details class="gitem">
+        <summary>
+          <span class="gtag gtag-l2">L2</span>
+          Possessiv mit <span class="gkw">de</span>
+        </summary>
+        <div class="gpattern">Pronomen / Nomen + de + Nomen</div>
+        <p class="gnote">de verbindet Besitzer und Besitz — wie „-s" oder „von" im Deutschen.</p>
+        <div class="gexamples">
+          <div class="gex"><span class="gzh">wǒ de péngyou</span><span class="gde">mein Freund</span></div>
+          <div class="gex"><span class="gzh">nǐ de míngzi</span><span class="gde">dein Name</span></div>
+          <div class="gex"><span class="gzh">tā de lǎoshī</span><span class="gde">ihr Lehrer</span></div>
+        </div>
+      </details>
+
+      <details class="gitem">
+        <summary>
+          <span class="gtag gtag-l2">L2</span>
+          Personalpronomen
+        </summary>
+        <div class="gpattern">Singular → Plural mit -men</div>
+        <div class="gpron-table">
+          <div class="gpron-row"><span class="gpron-py">wǒ</span><span class="gpron-de">ich</span><span class="gpron-arr">→</span><span class="gpron-py">wǒmen</span><span class="gpron-de">wir</span></div>
+          <div class="gpron-row"><span class="gpron-py">nǐ</span><span class="gpron-de">du</span><span class="gpron-arr">→</span><span class="gpron-py">nǐmen</span><span class="gpron-de">ihr</span></div>
+          <div class="gpron-row"><span class="gpron-py">tā</span><span class="gpron-de">er / sie / es</span><span class="gpron-arr">→</span><span class="gpron-py">tāmen</span><span class="gpron-de">sie (Pl.)</span></div>
+        </div>
+      </details>
+
+      <details class="gitem">
+        <summary>
+          <span class="gtag gtag-l2">L2</span>
+          Fragewörter
+        </summary>
+        <div class="gpattern">Fragewort ersetzt den unbekannten Teil</div>
+        <div class="gexamples">
+          <div class="gex"><span class="gzh">shénme</span><span class="gde">was</span></div>
+          <div class="gex"><span class="gzh">shuí</span><span class="gde">wer</span></div>
+          <div class="gex"><span class="gzh">nǎ</span><span class="gde">welcher / welche</span></div>
+          <div class="gex"><span class="gzh">nǎr</span><span class="gde">wo / woher</span></div>
+        </div>
+        <div class="gexamples" style="margin-top:6px">
+          <div class="gex"><span class="gzh">Nǐ jiào shénme míngzi?</span><span class="gde">Wie heißt du?</span></div>
+          <div class="gex"><span class="gzh">Nǐ shì nǎ guó rén?</span><span class="gde">Welcher Nationalität bist du?</span></div>
+          <div class="gex"><span class="gzh">Nǐ zài nǎr gōngzuò?</span><span class="gde">Wo arbeitest du?</span></div>
+        </div>
+      </details>
+
+      <details class="gitem">
+        <summary>
+          <span class="gtag gtag-l3">L3</span>
+          Ort mit <span class="gkw">zài</span>
+        </summary>
+        <div class="gpattern">Subj. + zài + Ort （+ Verb）</div>
+        <p class="gnote">zài = sich befinden / ist in. Kann auch vor dem Verb stehen.</p>
+        <div class="gexamples">
+          <div class="gex"><span class="gzh">Běijīng zài Zhōngguó.</span><span class="gde">Peking liegt in China.</span></div>
+          <div class="gex"><span class="gzh">Wǒ zài dàxué gōngzuò.</span><span class="gde">Ich arbeite an der Universität.</span></div>
+          <div class="gex"><span class="gzh">Zhōngguó zài zhèr.</span><span class="gde">China ist hier.</span></div>
+        </div>
+      </details>
+
+      <details class="gitem">
+        <summary>
+          <span class="gtag gtag-l3">L3</span>
+          Herkunft: <span class="gkw">cóng … lái</span>
+        </summary>
+        <div class="gpattern">Subj. + cóng + Ort + lái</div>
+        <p class="gnote">cóng = von/aus. lái = kommen. Zusammen: „aus … kommen".</p>
+        <div class="gexamples">
+          <div class="gex"><span class="gzh">Wǒ cóng Déguó lái.</span><span class="gde">Ich komme aus Deutschland.</span></div>
+          <div class="gex"><span class="gzh">Nǐ cóng nǎr lái?</span><span class="gde">Woher kommst du?</span></div>
+          <div class="gex"><span class="gzh">Tā cóng Běijīng lái.</span><span class="gde">Sie kommt aus Peking.</span></div>
+        </div>
+      </details>
+
+      <details class="gitem">
+        <summary>
+          <span class="gtag gtag-l3">L3</span>
+          Fähigkeit: <span class="gkw">huì</span> + Verb
+        </summary>
+        <div class="gpattern">Subj. + huì + Verb （+ Objekt）</div>
+        <p class="gnote">huì = gelernte Fähigkeit. Verneinung: bù huì.</p>
+        <div class="gexamples">
+          <div class="gex"><span class="gzh">Wǒ huì shuō Hànyǔ.</span><span class="gde">Ich kann Chinesisch sprechen.</span></div>
+          <div class="gex"><span class="gzh">Nǐ huì shuō Yīngyǔ ma?</span><span class="gde">Kannst du Englisch sprechen?</span></div>
+          <div class="gex"><span class="gzh">Duìbuqǐ, wǒ bù huì shuō Rìyǔ.</span><span class="gde">Tut mir leid, ich kann kein Japanisch.</span></div>
+        </div>
+      </details>
+
+      <details class="gitem">
+        <summary>
+          <span class="gtag gtag-l3">L3</span>
+          Bestätigungspartikel <span class="gkw">ba</span>
+        </summary>
+        <div class="gpattern">Aussagesatz + ba?</div>
+        <p class="gnote">Erwartet Zustimmung — wie „…, oder?" / „…, stimmt's?" im Deutschen.</p>
+        <div class="gexamples">
+          <div class="gex"><span class="gzh">Nǐ shì xuésheng ba?</span><span class="gde">Du bist Student, oder?</span></div>
+          <div class="gex"><span class="gzh">Tā shì Zhōngguórén ba?</span><span class="gde">Er ist Chinese, oder?</span></div>
+        </div>
+      </details>
+
+    </section>
+  </div>
+
+  <!-- SCREEN: Set-Übersicht -->
+  <div id="screen-set" class="screen">
+    <header class="sub-header">
+      <button class="btn-back" onclick="showHome()">← Zurück</button>
+      <h2 id="set-title"></h2>
+    </header>
+    <div class="set-info">
+      <span id="set-card-count"></span> Karten &nbsp;·&nbsp; <span id="set-progress-text"></span>
+    </div>
+    <div id="set-phase-breakdown" class="phase-row" style="margin-bottom:14px"></div>
+    <div class="mode-picker">
+      <button class="btn-mode active" data-mode="learn" onclick="selectMode(this,'learn')">Lernen</button>
+      <button class="btn-mode" data-mode="flash" onclick="selectMode(this,'flash')">Flashcard</button>
+      <button class="btn-mode" data-mode="mc" onclick="selectMode(this,'mc')">Multiple Choice</button>
+      <button class="btn-mode" data-mode="type" onclick="selectMode(this,'type')">Schreiben</button>
+    </div>
+    <div class="dir-picker">
+      <button class="btn-dir active" data-dir="zh" onclick="selectDir(this,'zh')">ZH→DE</button>
+      <button class="btn-dir" data-dir="de" onclick="selectDir(this,'de')">DE→ZH</button>
+    </div>
+    <div class="session-grid">
+      <button class="btn-session btn-session-primary" onclick="startSession('all')">
+        <span class="smode">Alle lernen</span>
+        <span class="scnt" id="cnt-all"></span>
+      </button>
+      <button class="btn-session" onclick="startSession('due')">
+        <span class="smode">Fällige</span>
+        <span class="scnt" id="cnt-due"></span>
+      </button>
+      <button class="btn-session" onclick="startSession('new')">
+        <span class="smode">Neue Karten</span>
+        <span class="scnt" id="cnt-new"></span>
+      </button>
+      <button class="btn-session btn-session-weak" onclick="startSession('weak')">
+        <span class="smode">Schwache Wörter</span>
+        <span class="scnt" id="cnt-weak"></span>
+      </button>
+    </div>
+    <button class="btn-danger-sm" onclick="resetSet()">Fortschritt zurücksetzen</button>
+    <div id="set-cards-preview" class="cards-preview"></div>
+  </div>
+
+  <!-- SCREEN: Quiz -->
+  <div id="screen-quiz" class="screen">
+    <header class="sub-header">
+      <button class="btn-back" onclick="quitQuiz()">✕ Beenden</button>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar" id="quiz-progress-bar"></div>
+      </div>
+      <span id="quiz-counter" class="quiz-counter"></span>
+    </header>
+
+    <div class="speak-bar">
+      <button class="btn-speak" onclick="speakCurrentCard()">🔊 Aussprechen</button>
+    </div>
+
+    <!-- FLASHCARD MODE -->
+    <div id="mode-flash" class="quiz-mode">
+      <div class="card-wrap" id="flash-card" onclick="flipCard()">
+        <div class="card">
+          <div class="card-front" id="flash-front"></div>
+          <div class="card-back" id="flash-back"></div>
+        </div>
+      </div>
+      <p class="flip-hint" id="flip-hint">Tippe auf die Karte zum Umdrehen</p>
+      <div class="rating-btns" id="rating-btns" style="display:none">
+        <button class="btn-bad"  onclick="rateCard(1)">😕 Nochmal</button>
+        <button class="btn-ok"   onclick="rateCard(3)">🤔 Fast</button>
+        <button class="btn-good" onclick="rateCard(5)">✅ Kann ich</button>
+      </div>
+    </div>
+
+    <!-- MULTIPLE CHOICE MODE -->
+    <div id="mode-mc" class="quiz-mode" style="display:none">
+      <div class="mc-question" id="mc-question"></div>
+      <div class="mc-options"  id="mc-options"></div>
+    </div>
+
+    <!-- TYPING MODE -->
+    <div id="mode-type" class="quiz-mode" style="display:none">
+      <div class="mc-question" id="type-question"></div>
+      <div class="type-input-wrap">
+        <input type="text" id="type-input" class="type-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        <button class="btn-primary" id="type-submit" onclick="submitType()">Prüfen</button>
+      </div>
+      <div id="type-result" class="type-result" style="display:none"></div>
+      <div id="type-next-btns" class="rating-btns" style="display:none">
+        <button class="btn-bad"  id="type-btn-wrong" onclick="rateCard(1)">Nochmal</button>
+        <button class="btn-good" id="type-btn-right" onclick="rateCard(5)">Weiter →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREEN: Session End -->
+  <div id="screen-end" class="screen">
+    <div class="end-wrap">
+      <div id="end-emoji" class="end-emoji">🎉</div>
+      <h2 id="end-title">Session abgeschlossen!</h2>
+      <div id="end-stats" class="end-stats"></div>
+      <button id="btn-repeat-wrong" class="btn-secondary btn-repeat-wrong" onclick="repeatWrong()" style="display:none">
+        🔁 Falsche wiederholen
+      </button>
+      <button class="btn-primary" onclick="showHome()">Zurück zur Übersicht</button>
+      <button class="btn-secondary" onclick="restartSession()">Nochmal</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

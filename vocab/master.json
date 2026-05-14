@@ -1,0 +1,926 @@
+{
+  "updated": "2026-05-13",
+  "total": 115,
+  "vocab": [
+    {
+      "chinese": "他 / 她",
+      "pinyin": "tā",
+      "german": "er / sie",
+      "example": "Tā shì wǒ de lǎoshī. – Er/Sie ist mein Lehrer.",
+      "source": "L2-uebung2",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "您",
+      "pinyin": "nín",
+      "german": "Sie (höflich)",
+      "example": "Nín shì Wáng xiānsheng ma? – Sind Sie Herr Wang?",
+      "source": "L2-uebung2",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "朋友",
+      "pinyin": "péngyou",
+      "german": "Freund / Freundin",
+      "example": "Tā shì wǒ de péngyou. – Er/Sie ist mein Freund.",
+      "source": "L2-uebung2",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "老师",
+      "pinyin": "lǎoshī",
+      "german": "Lehrer / Lehrerin",
+      "example": "Tā shì wǒ de lǎoshī. – Er ist mein Lehrer.",
+      "source": "L2-uebung2",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "哥哥",
+      "pinyin": "gēge",
+      "german": "älterer Bruder",
+      "example": "Nǐ gēge shì gōngchéngshī ma? – Ist dein älterer Bruder Ingenieur?",
+      "source": "L2-uebung2",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "工程师",
+      "pinyin": "gōngchéngshī",
+      "german": "Ingenieur",
+      "example": "Tā rènshì Wáng gōngchéngshī ma? – Kennt er Ingenieur Wang?",
+      "source": "L2-uebung2",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "这",
+      "pinyin": "zhè",
+      "german": "dies / dieses (Demonstrativpronomen)",
+      "example": "Zhè shì nǐ de míngpiàn ma? – Ist das deine Visitenkarte?",
+      "source": "L2-uebung2",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "名片",
+      "pinyin": "míngpiàn",
+      "german": "Visitenkarte",
+      "example": "Zhè shì nǐ de míngpiàn ma? – Ist das deine Visitenkarte?",
+      "source": "L2-uebung2",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "请问",
+      "pinyin": "qǐngwèn",
+      "german": "darf ich fragen / Entschuldigung",
+      "example": "Qǐngwèn, nǐ péngyou xìng shénme? – Darf ich fragen, wie Ihr Freund mit Nachnamen heißt?",
+      "source": "L2-uebung2",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "姓",
+      "pinyin": "xìng",
+      "german": "mit Nachnamen heißen",
+      "example": "Nǐ xìng shénme? – Wie heißen Sie mit Nachnamen?",
+      "source": "L2-uebung2",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "什么",
+      "pinyin": "shénme",
+      "german": "was",
+      "example": "Nǐ xìng shénme? – Wie heißen Sie mit Nachnamen?",
+      "source": "L2-uebung2",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "先生",
+      "pinyin": "xiānsheng",
+      "german": "Herr",
+      "example": "Nín shì Wáng xiānsheng ma? – Sind Sie Herr Wang?",
+      "source": "L2-uebung2",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "请",
+      "pinyin": "qǐng",
+      "german": "bitte (höfliche Aufforderung)",
+      "example": "Qǐng nǐ jièshào yíxià nǐ de péngyou. – Bitte stell deinen Freund vor.",
+      "source": "L2-uebung2",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "介绍",
+      "pinyin": "jièshào",
+      "german": "vorstellen",
+      "example": "Qǐng jièshào yíxià! – Bitte stell dich kurz vor!",
+      "source": "L2-uebung2",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "一下",
+      "pinyin": "yíxià",
+      "german": "kurz mal (Modalpartikel nach Verb)",
+      "example": "Jièshào yíxià. – Stell dich kurz vor.",
+      "source": "L2-uebung2",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "好吗",
+      "pinyin": "hǎo ma",
+      "german": "okay? / ist das in Ordnung?",
+      "example": "Qǐng jièshào yíxià, hǎo ma? – Bitte stell dich kurz vor, okay?",
+      "source": "L2-uebung2",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "认识",
+      "pinyin": "rènshì",
+      "german": "kennen / jemanden kennen",
+      "example": "Tā rènshì Wáng gōngchéngshī ma? – Kennt er Ingenieur Wang?",
+      "source": "L2-uebung2",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "高兴",
+      "pinyin": "gāoxìng",
+      "german": "froh / erfreut",
+      "example": "Gāoxìng rènshì nǐ! – Schön, dich kennenzulernen!",
+      "source": "L2-uebung2",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "叫",
+      "pinyin": "jiào",
+      "german": "heißen / sich nennen",
+      "example": "Tā jiào shénme míngzi? – Wie heißt er?",
+      "source": "L2-uebung2",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "名字",
+      "pinyin": "míngzi",
+      "german": "Name (Vorname)",
+      "example": "Nǐ jiào shénme míngzi? – Wie heißt du?",
+      "source": "L2-uebung2",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "秘书",
+      "pinyin": "mìshū",
+      "german": "Sekretär / Sekretärin",
+      "example": "Nín shì Zhāng mìshū ma? – Sind Sie Sekretärin Zhang?",
+      "source": "L2-uebung2",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "是",
+      "pinyin": "shì",
+      "german": "sein (Kopula)",
+      "example": "Tā shì lǎoshī. – Er ist Lehrer.",
+      "source": "L2-uebung2",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "吗",
+      "pinyin": "ma",
+      "german": "Fragepartikel (Ja/Nein-Frage)",
+      "example": "Nǐ shì lǎoshī ma? – Bist du Lehrer?",
+      "source": "L2-uebung2",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "的",
+      "pinyin": "de",
+      "german": "Genitivpartikel",
+      "example": "Wǒ de péngyou – mein Freund",
+      "source": "L2-uebung2",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "你",
+      "pinyin": "nǐ",
+      "german": "du",
+      "example": "你好！ – Hallo!",
+      "source": "SchriftzeichenL1-S8",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "好",
+      "pinyin": "hǎo",
+      "german": "gut / in Ordnung",
+      "example": "你好！ – Hallo!",
+      "source": "SchriftzeichenL1-S8",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "很",
+      "pinyin": "hěn",
+      "german": "sehr",
+      "example": "Wǒ hěn hǎo. – Mir geht es sehr gut.",
+      "source": "SchriftzeichenL1-S8",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "我",
+      "pinyin": "wǒ",
+      "german": "ich",
+      "example": "Wǒ shì lǎoshī. – Ich bin Lehrer.",
+      "source": "SchriftzeichenL1-S9",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "呢",
+      "pinyin": "ne",
+      "german": "Satzpartikel (Rückfrage / weiche Frage)",
+      "example": "Nǐ ne? – Und du?",
+      "source": "SchriftzeichenL1-S9",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "不",
+      "pinyin": "bù",
+      "german": "nicht / nein",
+      "example": "Wǒ bù máng. – Ich bin nicht beschäftigt.",
+      "source": "SchriftzeichenL1-S9",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "忙",
+      "pinyin": "máng",
+      "german": "beschäftigt / viel zu tun haben",
+      "example": "Nǐ máng ma? – Bist du beschäftigt?",
+      "source": "SchriftzeichenL1-S9",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "再",
+      "pinyin": "zài",
+      "german": "wieder / nochmals",
+      "example": "Zàijiàn! – Auf Wiedersehen!",
+      "source": "SchriftzeichenL1-S9",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "见",
+      "pinyin": "jiàn",
+      "german": "sehen / treffen",
+      "example": "Zàijiàn! – Auf Wiedersehen!",
+      "source": "SchriftzeichenL1-S9",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "再见",
+      "pinyin": "zàijiàn",
+      "german": "Auf Wiedersehen / Tschüss",
+      "example": "Zàijiàn! – Auf Wiedersehen!",
+      "source": "SchriftzeichenL1-S9",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "来",
+      "pinyin": "lái",
+      "german": "kommen",
+      "example": "Nǐ lái ma? – Kommst du?",
+      "source": "SiP1Chin-mit_Tonz",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "累",
+      "pinyin": "lèi",
+      "german": "müde / erschöpft",
+      "example": "Wǒ hěn lèi. – Ich bin sehr müde.",
+      "source": "SiP1Chin-mit_Tonz",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "要",
+      "pinyin": "yào",
+      "german": "wollen / brauchen / müssen",
+      "example": "Nǐ yào shénme? – Was möchtest du?",
+      "source": "SiP1Chin-mit_Tonz",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "墙",
+      "pinyin": "qiáng",
+      "german": "Wand / Mauer",
+      "example": "Zhè shì qiáng. – Das ist eine Wand.",
+      "source": "SiP1Chin-mit_Tonz",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "姐姐",
+      "pinyin": "jiějie",
+      "german": "ältere Schwester",
+      "example": "Wǒ jiějie shì lǎoshī. – Meine ältere Schwester ist Lehrerin.",
+      "source": "SiP1Chin-mit_Tonz",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "九",
+      "pinyin": "jiǔ",
+      "german": "neun (Zahl)",
+      "example": "Jiǔ ge rén. – Neun Personen.",
+      "source": "SiP1Chin-mit_Tonz",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "熊",
+      "pinyin": "xióng",
+      "german": "Bär",
+      "example": "Dà xióng māo. – Großer Bär (Panda).",
+      "source": "SiP1Chin-mit_Tonz",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "都",
+      "pinyin": "dōu",
+      "german": "alle / beide / alles",
+      "example": "Wǒmen dōu shì xuésheng. – Wir sind alle Studenten.",
+      "source": "SiP1Chin-mit_Tonz",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "花",
+      "pinyin": "huā",
+      "german": "Blume / Blüte",
+      "example": "Zhè shì huā. – Das ist eine Blume.",
+      "source": "SiP1Chin-mit_Tonz",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "欢迎",
+      "pinyin": "huānyíng",
+      "german": "willkommen",
+      "example": "Huānyíng! – Willkommen!",
+      "source": "SiP1Chin-mit_Tonz",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "外语",
+      "pinyin": "wàiyǔ",
+      "german": "Fremdsprache",
+      "example": "Nǐ xué shénme wàiyǔ? – Welche Fremdsprache lernst du?",
+      "source": "SiP1Chin-mit_Tonz",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "忘",
+      "pinyin": "wàng",
+      "german": "vergessen",
+      "example": "Wǒ wàng le. – Ich habe es vergessen.",
+      "source": "SiP1Chin-mit_Tonz",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "学",
+      "pinyin": "xué",
+      "german": "lernen / studieren",
+      "example": "Wǒ xué Zhōngwén. – Ich lerne Chinesisch.",
+      "source": "SiP1Chin-mit_Tonz",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "月",
+      "pinyin": "yuè",
+      "german": "Monat / Mond",
+      "example": "Jǐ yuè? – Welcher Monat?",
+      "source": "SiP1Chin-mit_Tonz",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "会",
+      "pinyin": "huì",
+      "german": "können (gelernte Fähigkeit) / werden",
+      "example": "Wǒ huì shuō Zhōngwén. – Ich kann Chinesisch sprechen.",
+      "source": "SiP1Chin-mit_Tonz",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "火",
+      "pinyin": "huǒ",
+      "german": "Feuer",
+      "example": "Zhè shì huǒ. – Das ist Feuer.",
+      "source": "SiP1Chin-mit_Tonz",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "也",
+      "pinyin": "yě",
+      "german": "auch / ebenfalls",
+      "example": "我也是学生。– Ich bin auch Student.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "饿",
+      "pinyin": "è",
+      "german": "hungrig",
+      "example": "你饿吗？– Bist du hungrig?",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "闲",
+      "pinyin": "xián",
+      "german": "frei / nicht beschäftigt",
+      "example": "我很闲。– Ich habe viel Zeit.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "还",
+      "pinyin": "hái",
+      "german": "noch / ganz / auch noch",
+      "example": "还不错。– Ganz gut / nicht schlecht.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "错",
+      "pinyin": "cuò",
+      "german": "falsch / Fehler",
+      "example": "不错！– Nicht schlecht!",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "拜拜",
+      "pinyin": "bàibài",
+      "german": "Tschüss (informell)",
+      "example": "拜拜！– Tschüss!",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "吧",
+      "pinyin": "ba",
+      "german": "Partikel für Bestätigung / Vorschlag (oder?)",
+      "example": "你是学生吧？– Du bist Student, oder?",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "同学",
+      "pinyin": "tóngxué",
+      "german": "Kommilitone / Mitschüler / Mitschülerin",
+      "example": "他是我的同学。– Er ist mein Kommilitone.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "学生",
+      "pinyin": "xuésheng",
+      "german": "Schüler / Student / Studentin",
+      "example": "我是学生。– Ich bin Student.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "对",
+      "pinyin": "duì",
+      "german": "richtig / stimmt / ja",
+      "example": "对，我是中国人。– Richtig, ich bin Chinese.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "对不起",
+      "pinyin": "duìbuqǐ",
+      "german": "Entschuldigung / es tut mir leid",
+      "example": "对不起，我不会说日语。– Entschuldigung, ich spreche kein Japanisch.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "谁",
+      "pinyin": "shuí",
+      "german": "wer",
+      "example": "你是谁？– Wer bist du?",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "谢谢",
+      "pinyin": "xièxie",
+      "german": "danke / danke schön",
+      "example": "谢谢你！– Danke dir!",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "那",
+      "pinyin": "nà",
+      "german": "das / jenes / dann (Demonstrativpronomen)",
+      "example": "那是什么？– Was ist das?",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "它",
+      "pinyin": "tā",
+      "german": "es (für Tiere und Sachen)",
+      "example": "它是一只猫。– Es ist eine Katze.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "我们",
+      "pinyin": "wǒmen",
+      "german": "wir",
+      "example": "我们都是学生。– Wir sind alle Studenten.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "你们",
+      "pinyin": "nǐmen",
+      "german": "ihr",
+      "example": "你们好！– Hallo (an mehrere)!",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "他们",
+      "pinyin": "tāmen",
+      "german": "sie (Plural, gemischt oder männlich)",
+      "example": "他们是老师。– Sie sind Lehrer.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "她们",
+      "pinyin": "tāmen",
+      "german": "sie (Plural, nur weiblich)",
+      "example": "她们都是学生。– Sie (alle) sind Studentinnen.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "人",
+      "pinyin": "rén",
+      "german": "Mensch / Person / Einwohner",
+      "example": "你是哪国人？– Welcher Nationalität bist du?",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "贵",
+      "pinyin": "guì",
+      "german": "wertvoll / edel (in Höflichkeitsformeln)",
+      "example": "您贵姓？– Wie ist Ihr werter Nachname?",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "中文",
+      "pinyin": "Zhōngwén",
+      "german": "Chinesisch (Sprache, allgemein)",
+      "example": "我学中文。– Ich lerne Chinesisch.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "汉语",
+      "pinyin": "Hànyǔ",
+      "german": "Mandarin / Chinesisch (formell)",
+      "example": "你会说汉语吗？– Kannst du Chinesisch sprechen?",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "汉字",
+      "pinyin": "Hànzì",
+      "german": "chinesisches Schriftzeichen",
+      "example": "汉字很难。– Chinesische Schriftzeichen sind schwer.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "爱",
+      "pinyin": "ài",
+      "german": "lieben / liebe",
+      "example": "我爱中文。– Ich liebe Chinesisch.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "说",
+      "pinyin": "shuō",
+      "german": "sprechen / sagen",
+      "example": "你会说汉语吗？– Kannst du Chinesisch sprechen?",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "在",
+      "pinyin": "zài",
+      "german": "sich befinden / in / an / bei",
+      "example": "北京在中国。– Peking liegt in China.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "这儿",
+      "pinyin": "zhèr",
+      "german": "hier",
+      "example": "中国在这儿。– China ist hier.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "那儿",
+      "pinyin": "nàr",
+      "german": "dort / da",
+      "example": "日本在那儿。– Japan ist dort.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "哪儿",
+      "pinyin": "nǎr",
+      "german": "wo / woher",
+      "example": "你从哪儿来？– Woher kommst du?",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "哪",
+      "pinyin": "nǎ",
+      "german": "welcher / welche / welches",
+      "example": "你是哪国人？– Welcher Nationalität bist du?",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "从",
+      "pinyin": "cóng",
+      "german": "von / aus / seit",
+      "example": "我从德国来。– Ich komme aus Deutschland.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "和",
+      "pinyin": "hé",
+      "german": "und / sowie",
+      "example": "我和你都是学生。– Du und ich sind beide Studenten.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "国",
+      "pinyin": "guó",
+      "german": "Land / Nation / Staat",
+      "example": "你是哪国人？– Aus welchem Land bist du?",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "中国",
+      "pinyin": "Zhōngguó",
+      "german": "China",
+      "example": "我来自中国。– Ich komme aus China.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "中国人",
+      "pinyin": "Zhōngguórén",
+      "german": "Chinese / Chinesin",
+      "example": "她是中国人。– Sie ist Chinesin.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "日本",
+      "pinyin": "Rìběn",
+      "german": "Japan",
+      "example": "他来自日本。– Er kommt aus Japan.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "日本人",
+      "pinyin": "Rìběnrén",
+      "german": "Japaner / Japanerin",
+      "example": "他是日本人。– Er ist Japaner.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "美国",
+      "pinyin": "Měiguó",
+      "german": "USA / Amerika",
+      "example": "她来自美国。– Sie kommt aus Amerika.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "美国人",
+      "pinyin": "Měiguórén",
+      "german": "Amerikaner / Amerikanerin",
+      "example": "他是美国人。– Er ist Amerikaner.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "英国",
+      "pinyin": "Yīngguó",
+      "german": "England / Großbritannien",
+      "example": "她来自英国。– Sie kommt aus Großbritannien.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "英国人",
+      "pinyin": "Yīngguórén",
+      "german": "Brite / Britin",
+      "example": "他是英国人。– Er ist Brite.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "法国",
+      "pinyin": "Fǎguó",
+      "german": "Frankreich",
+      "example": "她来自法国。– Sie kommt aus Frankreich.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "法国人",
+      "pinyin": "Fǎguórén",
+      "german": "Franzose / Französin",
+      "example": "他是法国人。– Er ist Franzose.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "德国",
+      "pinyin": "Déguó",
+      "german": "Deutschland",
+      "example": "我来自德国。– Ich komme aus Deutschland.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "德国人",
+      "pinyin": "Déguórén",
+      "german": "Deutscher / Deutsche",
+      "example": "我是德国人。– Ich bin Deutscher.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "意大利",
+      "pinyin": "Yìdàlì",
+      "german": "Italien",
+      "example": "她来自意大利。– Sie kommt aus Italien.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "西班牙",
+      "pinyin": "Xībānyá",
+      "german": "Spanien",
+      "example": "他来自西班牙。– Er kommt aus Spanien.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "俄罗斯",
+      "pinyin": "Éluósī",
+      "german": "Russland",
+      "example": "她来自俄罗斯。– Sie kommt aus Russland.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "北京",
+      "pinyin": "Běijīng",
+      "german": "Peking (Hauptstadt Chinas)",
+      "example": "我在北京学习汉语。– Ich lerne Chinesisch in Peking.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "上海",
+      "pinyin": "Shànghǎi",
+      "german": "Shanghai",
+      "example": "上海是大城市。– Shanghai ist eine große Stadt.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "英语",
+      "pinyin": "Yīngyǔ",
+      "german": "Englisch",
+      "example": "我会说英语。– Ich kann Englisch sprechen.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "日语",
+      "pinyin": "Rìyǔ",
+      "german": "Japanisch",
+      "example": "她学日语。– Sie lernt Japanisch.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "德语",
+      "pinyin": "Déyǔ",
+      "german": "Deutsch (Sprache)",
+      "example": "我的母语是德语。– Meine Muttersprache ist Deutsch.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "法语",
+      "pinyin": "Fǎyǔ",
+      "german": "Französisch",
+      "example": "你会说法语吗？– Kannst du Französisch sprechen?",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "国籍",
+      "pinyin": "guójí",
+      "german": "Nationalität / Staatsangehörigkeit",
+      "example": "你的国籍是什么？– Was ist deine Nationalität?",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "语言",
+      "pinyin": "yǔyán",
+      "german": "Sprache",
+      "example": "你会几种语言？– Wie viele Sprachen sprichst du?",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "工作",
+      "pinyin": "gōngzuò",
+      "german": "arbeiten / Arbeit / Job",
+      "example": "你在哪儿工作？– Wo arbeitest du?",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "大学",
+      "pinyin": "dàxué",
+      "german": "Universität / Hochschule",
+      "example": "我在大学学习。– Ich studiere an der Universität.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "公司",
+      "pinyin": "gōngsī",
+      "german": "Firma / Unternehmen",
+      "example": "他在公司工作。– Er arbeitet bei einer Firma.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "学习",
+      "pinyin": "xuéxí",
+      "german": "lernen / studieren",
+      "example": "你在哪儿学习汉语？– Wo lernst du Chinesisch?",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "口",
+      "pinyin": "kǒu",
+      "german": "Mund (auch Radikal für mundähnliche Formen)",
+      "example": "口 ist das Radikal für Mund.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "日",
+      "pinyin": "rì",
+      "german": "Sonne / Tag (Radikal)",
+      "example": "今日 – heute / dieser Tag",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "木",
+      "pinyin": "mù",
+      "german": "Holz / Baum (Radikal)",
+      "example": "木 ist das Radikal für Holz.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    },
+    {
+      "chinese": "女",
+      "pinyin": "nǚ",
+      "german": "Frau / weiblich (Radikal)",
+      "example": "女 ist das Radikal für Frau.",
+      "source": "Vorlesungsfolien",
+      "added": "2026-05-13"
+    }
+  ]
+}

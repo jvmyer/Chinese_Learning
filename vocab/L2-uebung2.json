@@ -1,0 +1,151 @@
+{
+  "id": "L2-uebung2",
+  "name": "Lektion 2 – Übung 2 (Vorstellung & Berufe)",
+  "created": "2026-05-13",
+  "cards": [
+    {
+      "chinese": "他 / 她",
+      "pinyin": "tā",
+      "english": "er / sie",
+      "example": "Tā shì wǒ de lǎoshī. – Er/Sie ist mein Lehrer."
+    },
+    {
+      "chinese": "您",
+      "pinyin": "nín",
+      "english": "Sie (höflich)",
+      "example": "Nín shì Wáng xiānsheng ma? – Sind Sie Herr Wang?"
+    },
+    {
+      "chinese": "朋友",
+      "pinyin": "péngyou",
+      "english": "Freund / Freundin",
+      "example": "Tā shì wǒ de péngyou. – Er/Sie ist mein Freund."
+    },
+    {
+      "chinese": "老师",
+      "pinyin": "lǎoshī",
+      "english": "Lehrer / Lehrerin",
+      "example": "Tā shì wǒ de lǎoshī. – Er ist mein Lehrer."
+    },
+    {
+      "chinese": "哥哥",
+      "pinyin": "gēge",
+      "english": "älterer Bruder",
+      "example": "Nǐ gēge shì gōngchéngshī ma? – Ist dein älterer Bruder Ingenieur?"
+    },
+    {
+      "chinese": "工程师",
+      "pinyin": "gōngchéngshī",
+      "english": "Ingenieur",
+      "example": "Tā rènshì Wáng gōngchéngshī ma? – Kennt er Ingenieur Wang?"
+    },
+    {
+      "chinese": "这",
+      "pinyin": "zhè",
+      "english": "dies / dieses (Demonstrativpronomen)",
+      "example": "Zhè shì nǐ de míngpiàn ma? – Ist das deine Visitenkarte?"
+    },
+    {
+      "chinese": "名片",
+      "pinyin": "míngpiàn",
+      "english": "Visitenkarte",
+      "example": "Zhè shì nǐ de míngpiàn ma? – Ist das deine Visitenkarte?"
+    },
+    {
+      "chinese": "请问",
+      "pinyin": "qǐngwèn",
+      "english": "darf ich fragen / Entschuldigung",
+      "example": "Qǐngwèn, nǐ péngyou xìng shénme? – Darf ich fragen, wie Ihr Freund mit Nachnamen heißt?"
+    },
+    {
+      "chinese": "姓",
+      "pinyin": "xìng",
+      "english": "mit Nachnamen heißen",
+      "example": "Nǐ xìng shénme? – Wie heißen Sie mit Nachnamen?"
+    },
+    {
+      "chinese": "什么",
+      "pinyin": "shénme",
+      "english": "was",
+      "example": "Nǐ xìng shénme? – Wie heißen Sie mit Nachnamen?"
+    },
+    {
+      "chinese": "先生",
+      "pinyin": "xiānsheng",
+      "english": "Herr",
+      "example": "Nín shì Wáng xiānsheng ma? – Sind Sie Herr Wang?"
+    },
+    {
+      "chinese": "请",
+      "pinyin": "qǐng",
+      "english": "bitte (höfliche Aufforderung)",
+      "example": "Qǐng nǐ jièshào yíxià nǐ de péngyou. – Bitte stell deinen Freund vor."
+    },
+    {
+      "chinese": "介绍",
+      "pinyin": "jièshào",
+      "english": "vorstellen",
+      "example": "Qǐng jièshào yíxià! – Bitte stell dich kurz vor!"
+    },
+    {
+      "chinese": "一下",
+      "pinyin": "yíxià",
+      "english": "kurz mal (Modalpartikel nach Verb)",
+      "example": "Jièshào yíxià. – Stell dich kurz vor."
+    },
+    {
+      "chinese": "好吗",
+      "pinyin": "hǎo ma",
+      "english": "okay? / ist das in Ordnung?",
+      "example": "Qǐng jièshào yíxià, hǎo ma? – Bitte stell dich kurz vor, okay?"
+    },
+    {
+      "chinese": "认识",
+      "pinyin": "rènshì",
+      "english": "kennen / jemanden kennen",
+      "example": "Tā rènshì Wáng gōngchéngshī ma? – Kennt er Ingenieur Wang?"
+    },
+    {
+      "chinese": "高兴",
+      "pinyin": "gāoxìng",
+      "english": "froh / erfreut",
+      "example": "Gāoxìng rènshì nǐ! – Schön, dich kennenzulernen!"
+    },
+    {
+      "chinese": "叫",
+      "pinyin": "jiào",
+      "english": "heißen / sich nennen",
+      "example": "Tā jiào shénme míngzi? – Wie heißt er?"
+    },
+    {
+      "chinese": "名字",
+      "pinyin": "míngzi",
+      "english": "Name (Vorname)",
+      "example": "Nǐ jiào shénme míngzi? – Wie heißt du?"
+    },
+    {
+      "chinese": "秘书",
+      "pinyin": "mìshū",
+      "english": "Sekretär / Sekretärin",
+      "example": "Nín shì Zhāng mìshū ma? – Sind Sie Sekretärin Zhang?"
+    },
+    {
+      "chinese": "是",
+      "pinyin": "shì",
+      "english": "sein (Kopula)",
+      "example": "Tā shì lǎoshī. – Er ist Lehrer."
+    },
+    {
+      "chinese": "吗",
+      "pinyin": "ma",
+      "english": "Fragepartikel (Ja/Nein-Frage)",
+      "example": "Nǐ shì lǎoshī ma? – Bist du Lehrer?"
+    },
+    {
+      "chinese": "的",
+      "pinyin": "de",
+      "english": "Genitivpartikel",
+      "example": "Wǒ de péngyou – mein Freund"
+    }
+  ]
+}
