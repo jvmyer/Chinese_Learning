@@ -13,6 +13,10 @@ let sessionType   = 'all';
 let cardFlipped   = false;
 let mcAnswered    = false;
 let progress      = {};
+let newCardQueue      = [];
+let batchCorrect      = 0;
+let pendingTypingCards = new Set();
+const BATCH_SIZE      = 8;
 
 // ── NORMALISIERUNG ─────────────────────────────────────────────────────
 function getDE(card) { return card.german || card.english || ''; }
@@ -317,6 +321,14 @@ function resetSet() {
   openSet(currentSet);
 }
 
+function resetAllProgress() {
+  if (!confirm('Alle Vokabeln auf Neu zurücksetzen? Das kann nicht rückgängig gemacht werden.')) return;
+  progress = {};
+  saveProgress();
+  if (currentSet) openSet(currentSet);
+  else renderHome();
+}
+
 // ── SESSION ────────────────────────────────────────────────────────────
 function startSession(type) {
   if (!currentSet) return;
@@ -337,6 +349,19 @@ function startSession(type) {
     };
     alert(msgs[type] || 'Keine Karten gefunden.');
     return;
+  }
+
+  newCardQueue = [];
+  batchCorrect = 0;
+  pendingTypingCards.clear();
+  if (sessionMode === 'learn') {
+    const newCards   = cards.filter(c =>  isNew(getCardProgress(currentSet.id, cardId(c))));
+    const otherCards = cards.filter(c => !isNew(getCardProgress(currentSet.id, cardId(c))));
+    if (newCards.length > BATCH_SIZE) {
+      const shuffledNew = shuffle([...newCards]);
+      newCardQueue = shuffledNew.slice(BATCH_SIZE);
+      cards = [...otherCards, ...shuffledNew.slice(0, BATCH_SIZE)];
+    }
   }
 
   sessionCards   = shuffle([...cards]);
@@ -361,16 +386,27 @@ function setupQuizMode() {
 }
 
 function showCard() {
-  if (sessionIdx >= sessionCards.length) { endSession(); return; }
-  const total = sessionCards.length;
-  document.getElementById('quiz-counter').textContent        = `${sessionIdx + 1} / ${total}`;
-  document.getElementById('quiz-progress-bar').style.width  = `${(sessionIdx / total) * 100}%`;
+  if (sessionMode === 'learn') {
+    if (sessionCards.length === 0) { endSession(); return; }
+    const total = sessionCorrect + sessionCards.length + newCardQueue.length;
+    document.getElementById('quiz-counter').textContent       = `${sessionCorrect} / ${total}`;
+    document.getElementById('quiz-progress-bar').style.width = `${total > 0 ? (sessionCorrect / total * 100) : 0}%`;
+  } else {
+    if (sessionIdx >= sessionCards.length) { endSession(); return; }
+    const total = sessionCards.length;
+    document.getElementById('quiz-counter').textContent       = `${sessionIdx + 1} / ${total}`;
+    document.getElementById('quiz-progress-bar').style.width = `${(sessionIdx / total) * 100}%`;
+  }
 
   const card = sessionCards[sessionIdx];
   let mode = sessionMode;
   if (sessionMode === 'learn') {
-    const p = getCardProgress(currentSet.id, cardId(card));
-    mode = p.interval < 3 ? 'mc' : 'type';
+    if (pendingTypingCards.has(cardId(card))) {
+      mode = 'type';
+    } else {
+      const p = getCardProgress(currentSet.id, cardId(card));
+      mode = p.interval < 3 ? 'mc' : 'type';
+    }
   }
 
   document.getElementById('mode-flash').style.display = mode === 'flash' ? '' : 'none';
@@ -402,13 +438,51 @@ function flipCard() {
   document.getElementById('rating-btns').style.display = cardFlipped ? 'flex' : 'none';
 }
 
+function advanceLearnCard(card, isCorrect) {
+  const cId = cardId(card);
+  if (pendingTypingCards.has(cId)) {
+    if (isCorrect) {
+      pendingTypingCards.delete(cId);
+      sm2Rate(getCardProgress(currentSet.id, cId), 5);
+      saveProgress();
+      sessionCorrect++;
+      sessionCards.splice(sessionIdx, 1);
+      batchCorrect++;
+      if (batchCorrect >= 5 && newCardQueue.length > 0) {
+        sessionCards.push(...shuffle(newCardQueue.splice(0, BATCH_SIZE)));
+        batchCorrect = 0;
+      }
+    } else {
+      if (!sessionWrong.find(c => cardId(c) === cId)) sessionWrong.push(card);
+      const wrongCard = sessionCards.splice(sessionIdx, 1)[0];
+      sessionCards.splice(Math.min(sessionIdx + 3, sessionCards.length), 0, wrongCard);
+    }
+  } else {
+    if (isCorrect) {
+      pendingTypingCards.add(cId);
+      const c = sessionCards.splice(sessionIdx, 1)[0];
+      sessionCards.splice(Math.min(sessionIdx + 3, sessionCards.length), 0, c);
+    } else {
+      sm2Rate(getCardProgress(currentSet.id, cId), 1);
+      saveProgress();
+      if (!sessionWrong.find(c => cardId(c) === cId)) sessionWrong.push(card);
+      const wrongCard = sessionCards.splice(sessionIdx, 1)[0];
+      sessionCards.splice(Math.min(sessionIdx + 3, sessionCards.length), 0, wrongCard);
+    }
+  }
+}
+
 function rateCard(rating) {
   const card = sessionCards[sessionIdx];
-  sm2Rate(getCardProgress(currentSet.id, cardId(card)), rating);
-  saveProgress();
-  if (rating >= 4) sessionCorrect++;
-  else sessionWrong.push(card);
-  sessionIdx++;
+  if (sessionMode === 'learn') {
+    advanceLearnCard(card, rating >= 3);
+  } else {
+    sm2Rate(getCardProgress(currentSet.id, cardId(card)), rating);
+    saveProgress();
+    if (rating >= 4) sessionCorrect++;
+    else sessionWrong.push(card);
+    sessionIdx++;
+  }
   showCard();
 }
 
@@ -441,16 +515,18 @@ function selectMCOption(btn, chosen, correct) {
     b.disabled = true;
     if (mcAnswerText(correct) === b.textContent) b.classList.add('correct');
   });
-  if (!isCorrect) {
-    btn.classList.add('wrong');
-    sessionWrong.push(correct);
-  } else {
-    sessionCorrect++;
-  }
+  if (!isCorrect) btn.classList.add('wrong');
 
-  sm2Rate(getCardProgress(currentSet.id, cardId(correct)), isCorrect ? 5 : 1);
-  saveProgress();
-  setTimeout(() => { sessionIdx++; showCard(); }, isCorrect ? 2000 : 3000);
+  if (sessionMode === 'learn') {
+    advanceLearnCard(correct, isCorrect);
+    setTimeout(() => showCard(), isCorrect ? 800 : 2500);
+  } else {
+    sm2Rate(getCardProgress(currentSet.id, cardId(correct)), isCorrect ? 5 : 1);
+    saveProgress();
+    if (isCorrect) sessionCorrect++;
+    else sessionWrong.push(correct);
+    setTimeout(() => { sessionIdx++; showCard(); }, isCorrect ? 2000 : 3000);
+  }
 }
 
 // ── CARD CONTENT ───────────────────────────────────────────────────────
@@ -583,8 +659,8 @@ function endSession() {
     <strong>${sessionCorrect}</strong> von <strong>${total}</strong> richtig &nbsp;·&nbsp; <strong>${pct}%</strong><br>
     ${wrong > 0 ? `<span style="color:var(--bad)">${wrong} falsch</span>` : '<span style="color:var(--good)">Keine Fehler</span>'}`;
 
-  // "Falsche wiederholen" nur anzeigen wenn es Fehler gab
-  document.getElementById('btn-repeat-wrong').style.display = wrong > 0 ? '' : 'none';
+  // "Falsche wiederholen" nur in anderen Modi anzeigen (Lernen zykliert bereits)
+  document.getElementById('btn-repeat-wrong').style.display = (sessionMode !== 'learn' && wrong > 0) ? '' : 'none';
 
   showScreen('end');
 }

@@ -325,7 +325,10 @@
         <span class="scnt" id="cnt-weak"></span>
       </button>
     </div>
-    <button class="btn-danger-sm" onclick="resetSet()">Fortschritt zurücksetzen</button>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-danger-sm" onclick="resetSet()">Set zurücksetzen</button>
+      <button class="btn-danger-sm" onclick="resetAllProgress()">Alle auf Neu</button>
+    </div>
     <div id="set-cards-preview" class="cards-preview"></div>
   </div>
 

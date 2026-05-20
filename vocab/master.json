@@ -1,6 +1,6 @@
 {
-  "updated": "2026-05-13",
-  "total": 115,
+  "updated": "2026-05-20",
+  "total": 116,
   "vocab": [
     {
       "chinese": "他 / 她",
@@ -921,6 +921,14 @@
       "example": "女 ist das Radikal für Frau.",
       "source": "Vorlesungsfolien",
       "added": "2026-05-13"
+    },
+    {
+      "chinese": "大",
+      "pinyin": "dà",
+      "german": "groß / alt (bei Geschwistern)",
+      "example": "我们是大学生。– Wir sind Universitätsstudenten.",
+      "source": "SiP1Chin_SR1",
+      "added": "2026-05-20"
     }
   ]
 }
