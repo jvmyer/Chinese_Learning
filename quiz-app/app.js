@@ -15,7 +15,7 @@ let mcAnswered    = false;
 let progress      = {};
 let newCardQueue      = [];
 let batchCorrect      = 0;
-let pendingTypingCards = new Set();
+let pendingTypingCards = new Map(); // cardId → verbleibende richtige Eingaben
 const BATCH_SIZE      = 8;
 
 // ── NORMALISIERUNG ─────────────────────────────────────────────────────
@@ -104,6 +104,15 @@ function sm2Rate(p, rating) {
 function isDue(p)  { return p.due <= Date.now() || p.seen === 0; }
 function isNew(p)  { return p.seen === 0; }
 function isWeak(p) { return p.seen > 0 && (p.correct / p.seen) < 0.6; }
+
+// ── REQUIRED CORRECT ───────────────────────────────────────────────────
+// 0 Fehler → 1×, 1–2 Fehler → 2×, ≥3 Fehler → 3×
+function requiredCorrect(p) {
+  const errors = (p.seen || 0) - (p.correct || 0);
+  if (errors <= 0) return 1;
+  if (errors <= 2) return 2;
+  return 3;
+}
 
 // ── PHASEN ─────────────────────────────────────────────────────────────
 // Schwellwerte: < 21 Tage = Lernen, < 60 Tage = Review, ≥ 60 Tage = Sicher
@@ -405,7 +414,7 @@ function showCard() {
       mode = 'type';
     } else {
       const p = getCardProgress(currentSet.id, cardId(card));
-      mode = p.interval < 3 ? 'mc' : 'type';
+      mode = p.seen === 0 ? 'mc' : 'type';
     }
   }
 
@@ -442,15 +451,22 @@ function advanceLearnCard(card, isCorrect) {
   const cId = cardId(card);
   if (pendingTypingCards.has(cId)) {
     if (isCorrect) {
-      pendingTypingCards.delete(cId);
-      sm2Rate(getCardProgress(currentSet.id, cId), 5);
-      saveProgress();
-      sessionCorrect++;
-      sessionCards.splice(sessionIdx, 1);
-      batchCorrect++;
-      if (batchCorrect >= 5 && newCardQueue.length > 0) {
-        sessionCards.push(...shuffle(newCardQueue.splice(0, BATCH_SIZE)));
-        batchCorrect = 0;
+      const remaining = pendingTypingCards.get(cId) - 1;
+      if (remaining <= 0) {
+        pendingTypingCards.delete(cId);
+        sm2Rate(getCardProgress(currentSet.id, cId), 5);
+        saveProgress();
+        sessionCorrect++;
+        sessionCards.splice(sessionIdx, 1);
+        batchCorrect++;
+        if (batchCorrect >= 5 && newCardQueue.length > 0) {
+          sessionCards.push(...shuffle(newCardQueue.splice(0, BATCH_SIZE)));
+          batchCorrect = 0;
+        }
+      } else {
+        pendingTypingCards.set(cId, remaining);
+        const c = sessionCards.splice(sessionIdx, 1)[0];
+        sessionCards.splice(Math.min(sessionIdx + 3, sessionCards.length), 0, c);
       }
     } else {
       if (!sessionWrong.find(c => cardId(c) === cId)) sessionWrong.push(card);
@@ -459,9 +475,30 @@ function advanceLearnCard(card, isCorrect) {
     }
   } else {
     if (isCorrect) {
-      pendingTypingCards.add(cId);
-      const c = sessionCards.splice(sessionIdx, 1)[0];
-      sessionCards.splice(Math.min(sessionIdx + 3, sessionCards.length), 0, c);
+      const p = getCardProgress(currentSet.id, cId);
+      if (p.seen === 0) {
+        // Neue Karte: MC war richtig, jetzt Tippen (required basiert auf 0 Fehlern = 1×)
+        pendingTypingCards.set(cId, requiredCorrect(p));
+        const c = sessionCards.splice(sessionIdx, 1)[0];
+        sessionCards.splice(Math.min(sessionIdx + 3, sessionCards.length), 0, c);
+      } else {
+        const required = requiredCorrect(p);
+        if (required <= 1) {
+          sm2Rate(p, 5);
+          saveProgress();
+          sessionCorrect++;
+          sessionCards.splice(sessionIdx, 1);
+          batchCorrect++;
+          if (batchCorrect >= 5 && newCardQueue.length > 0) {
+            sessionCards.push(...shuffle(newCardQueue.splice(0, BATCH_SIZE)));
+            batchCorrect = 0;
+          }
+        } else {
+          pendingTypingCards.set(cId, required - 1);
+          const c = sessionCards.splice(sessionIdx, 1)[0];
+          sessionCards.splice(Math.min(sessionIdx + 3, sessionCards.length), 0, c);
+        }
+      }
     } else {
       sm2Rate(getCardProgress(currentSet.id, cId), 1);
       saveProgress();
@@ -497,10 +534,12 @@ function showMCCard() {
   const options     = shuffle([card, ...distractors]);
   const container   = document.getElementById('mc-options');
   container.innerHTML = '';
-  options.forEach(opt => {
+  options.forEach((opt, i) => {
     const btn = document.createElement('button');
     btn.className   = 'mc-option';
-    btn.textContent = mcAnswerText(opt);
+    btn.dataset.mcIndex = i + 1;
+    btn.dataset.mcText  = mcAnswerText(opt);
+    btn.innerHTML   = `<span class="mc-num">${i + 1}</span>${mcAnswerText(opt)}`;
     btn.onclick = () => selectMCOption(btn, opt, card);
     container.appendChild(btn);
   });
@@ -513,7 +552,7 @@ function selectMCOption(btn, chosen, correct) {
 
   document.querySelectorAll('.mc-option').forEach(b => {
     b.disabled = true;
-    if (mcAnswerText(correct) === b.textContent) b.classList.add('correct');
+    if (mcAnswerText(correct) === b.dataset.mcText) b.classList.add('correct');
   });
   if (!isCorrect) btn.classList.add('wrong');
 
@@ -635,7 +674,7 @@ function submitType() {
   } else {
     wrongBtn.style.display = '';
     wrongBtn.onclick = () => rateCard(1);
-    rightBtn.onclick = () => rateCard(3);
+    rightBtn.onclick = () => rateCard(5);
     rightBtn.textContent = 'Trotzdem weiter';
   }
   document.getElementById('type-next-btns').style.display = 'flex';
@@ -689,8 +728,17 @@ document.addEventListener('keydown', e => {
       const nextBtns = document.getElementById('type-next-btns');
       if (!inp.disabled) submitType();
       else if (nextBtns.style.display !== 'none') {
-        document.getElementById('type-btn-right').click();
+        const wrongBtn = document.getElementById('type-btn-wrong');
+        if (wrongBtn && wrongBtn.style.display !== 'none') wrongBtn.click();
+        else document.getElementById('type-btn-right').click();
       }
+    }
+  }
+  if (['1','2','3','4'].includes(e.key)) {
+    const mcMode = document.getElementById('mode-mc');
+    if (mcMode && mcMode.style.display !== 'none') {
+      const btn = document.querySelector(`.mc-option[data-mc-index="${e.key}"]`);
+      if (btn && !btn.disabled) btn.click();
     }
   }
 });

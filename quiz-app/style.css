@@ -302,6 +302,7 @@ header h1 span { color: var(--accent); }
 .mc-options { display: flex; flex-direction: column; gap: 10px; }
 
 .mc-option {
+  display: flex; align-items: center;
   background: var(--surface); border: 1.5px solid var(--border);
   border-radius: 10px; padding: 14px 18px;
   font-size: .95rem; cursor: pointer; text-align: left;
@@ -311,6 +312,15 @@ header h1 span { color: var(--accent); }
 .mc-option.correct { background: #e8f5e9; border-color: var(--good); color: var(--good); font-weight: 600; }
 .mc-option.wrong   { background: #fde8e8; border-color: var(--bad); color: var(--bad); }
 .mc-option:disabled { cursor: default; }
+.mc-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 22px; height: 22px; margin-right: 10px;
+  background: var(--border); border-radius: 5px;
+  font-size: .78rem; font-weight: 700; color: var(--text-muted);
+  flex-shrink: 0;
+}
+.mc-option.correct .mc-num { background: #c8e6c9; color: var(--good); }
+.mc-option.wrong   .mc-num { background: #ffcdd2; color: var(--bad); }
 
 /* ── PHASEN ── */
 .phase-bar {
