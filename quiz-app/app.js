@@ -35,7 +35,7 @@ function saveProgress() {
 function getCardProgress(setId, cId) {
   progress[setId] = progress[setId] || {};
   progress[setId][cId] = progress[setId][cId] || {
-    ease: 2.5, interval: 0, due: 0, seen: 0, correct: 0
+    ease: 2.5, interval: 0, due: 0, seen: 0, correct: 0, streak: 0
   };
   return progress[setId][cId];
 }
@@ -88,7 +88,8 @@ function saveProgressFile() {
 // ── SM-2 ───────────────────────────────────────────────────────────────
 function sm2Rate(p, rating) {
   p.seen++;
-  if (rating >= 4) p.correct++;
+  if (rating >= 4) { p.correct++; p.streak = (p.streak || 0) + 1; }
+  else if (rating < 3) p.streak = 0;
   if (rating < 3) {
     p.interval = 1;
   } else {
@@ -107,8 +108,12 @@ function isWeak(p) { return p.seen > 0 && (p.correct / p.seen) < 0.6; }
 
 // ── REQUIRED CORRECT ───────────────────────────────────────────────────
 // 0 Fehler → 1×, 1–2 Fehler → 2×, ≥3 Fehler → 3×
+// Decay: je 2 korrekte Antworten in Folge (streak) wird 1 Altfehler vergeben,
+// damit gut gelernte Wörter nicht ewig 2–3× verlangt werden.
 function requiredCorrect(p) {
-  const errors = (p.seen || 0) - (p.correct || 0);
+  const rawErrors = (p.seen || 0) - (p.correct || 0);
+  const forgiven  = Math.floor((p.streak || 0) / 2);
+  const errors    = Math.max(0, rawErrors - forgiven);
   if (errors <= 0) return 1;
   if (errors <= 2) return 2;
   return 3;

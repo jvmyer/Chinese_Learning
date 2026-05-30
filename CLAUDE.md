@@ -53,8 +53,12 @@ python3 scripts/add_vocab.py --stats               # Übersicht
 
 **Quiz-App starten:**
 ```bash
-cd quiz-app && python3 -m http.server 8765
-# → http://localhost:8765
+# WICHTIG: Server im Projekt-Root starten, NICHT in quiz-app/.
+# Die App lädt ../vocab/master.json und ../progress/progress.json aus dem
+# Parent-Ordner – läuft der Server in quiz-app/, liegen diese außerhalb des
+# Roots → 404 → App hängt bei „Lädt…".
+python3 -m http.server 8765
+# → http://localhost:8765/quiz-app/index.html
 # Lädt master.json automatisch
 ```
 
