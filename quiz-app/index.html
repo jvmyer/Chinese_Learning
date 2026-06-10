@@ -15,6 +15,12 @@
       <p class="subtitle">Deine Chinesisch-Lernkarten</p>
     </header>
 
+    <div class="home-tabs">
+      <button class="htab active" id="htab-vocab"  onclick="switchHomeTab('vocab')">Vokabeln</button>
+      <button class="htab"        id="htab-order"  onclick="switchHomeTab('order')">🔀 Satzstellung</button>
+    </div>
+
+    <div id="htab-content-vocab">
     <section class="sets-section">
       <div class="sets-header">
         <h2>Vokabel-Sets</h2>
@@ -285,6 +291,56 @@
       </details>
 
     </section>
+    </div><!-- /htab-content-vocab -->
+
+    <div id="htab-content-order" style="display:none">
+      <div class="order-intro-card">
+        <div class="order-intro-icon">🔀</div>
+        <h3>Satzstellung üben</h3>
+        <p>Bringe die Schriftzeichen in die richtige Reihenfolge.<br>Ziehen oder tippen zum Platzieren.</p>
+        <div class="order-intro-stats" id="order-intro-stats"></div>
+        <button class="btn-primary" onclick="startOrderSession()">Übung starten</button>
+      </div>
+    </div><!-- /htab-content-order -->
+
+  </div>
+
+  <!-- SCREEN: Satzstellung -->
+  <div id="screen-order" class="screen">
+    <header class="sub-header">
+      <button class="btn-back" onclick="quitOrder()">✕ Beenden</button>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar" id="order-progress-bar"></div>
+      </div>
+      <span id="order-counter" class="quiz-counter"></span>
+    </header>
+
+    <div id="order-body" class="order-body">
+      <div class="order-german" id="order-german"></div>
+
+      <div class="order-zone-wrap">
+        <div class="order-zone-label">Deine Reihenfolge</div>
+        <div class="order-target" id="order-target"></div>
+      </div>
+
+      <div class="order-zone-wrap">
+        <div class="order-zone-label">Wörter</div>
+        <div class="order-source" id="order-source"></div>
+      </div>
+
+      <div id="order-result" class="order-result" style="display:none"></div>
+
+      <button class="btn-primary"   id="order-check-btn" onclick="checkOrder()">Prüfen</button>
+      <button class="btn-secondary" id="order-next-btn"  onclick="orderNextCard()" style="display:none">Weiter →</button>
+    </div>
+
+    <div id="order-end-wrap" class="end-wrap" style="display:none">
+      <div id="order-end-emoji" class="end-emoji">🎉</div>
+      <h2 id="order-end-title">Gut gemacht!</h2>
+      <div id="order-end-stats" class="end-stats"></div>
+      <button class="btn-primary"   onclick="restartOrderSession()">Nochmal</button>
+      <button class="btn-secondary" onclick="quitOrder()">Zurück zur Übersicht</button>
+    </div>
   </div>
 
   <!-- SCREEN: Set-Übersicht -->

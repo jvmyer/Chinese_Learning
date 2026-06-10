@@ -151,6 +151,58 @@ function phaseChipsHTML(pc) {
     <span class="phase-chip pc-mastered">${pc.mastered} Sicher</span>`;
 }
 
+// ── TOKENIZER ─────────────────────────────────────────────────────────
+function tokenizeSentence(chinese) {
+  const allWords = new Set();
+  sets.forEach(set => {
+    if (set.id === '__sentences__') return;
+    set.cards.forEach(c => {
+      c.chinese.split('/').forEach(w => { const t = w.trim(); if (t) allWords.add(t); });
+    });
+  });
+  const wordList = [...allWords].sort((a, b) => b.length - a.length);
+  const s = chinese.replace(/[。？！，、]/g, '').trim();
+  const tokens = [];
+  let i = 0;
+  while (i < s.length) {
+    let matched = false;
+    for (const w of wordList) {
+      if (w.length && s.startsWith(w, i)) { tokens.push(w); i += w.length; matched = true; break; }
+    }
+    if (!matched) { if (s[i] !== ' ') tokens.push(s[i]); i++; }
+  }
+  return tokens.filter(t => t.length > 0);
+}
+
+// ── AUTO-LOAD SENTENCES.JSON ───────────────────────────────────────────
+async function loadSentencesVocab() {
+  try {
+    const res = await fetch('../vocab/sentences.json');
+    if (!res.ok) return;
+    const data = await res.json();
+    if (!Array.isArray(data.vocab) || data.vocab.length === 0) return;
+
+    const sentenceSet = {
+      id:      '__sentences__',
+      name:    `💬 Satzmuster (${data.total || data.vocab.length})`,
+      created: data.updated || '',
+      cards:   data.vocab.map(v => ({
+        chinese: v.chinese,
+        pinyin:  v.pinyin  || '',
+        german:  v.german  || '',
+        english: v.german  || '',
+        example: '',
+      }))
+    };
+
+    const idx = sets.findIndex(s => s.id === '__sentences__');
+    if (idx >= 0) sets[idx] = sentenceSet;
+    else sets.push(sentenceSet);
+
+    renderHome();
+  } catch { /* kein Server oder keine Datei */ }
+}
+
 // ── AUTO-LOAD MASTER.JSON ──────────────────────────────────────────────
 async function loadMasterVocab() {
   try {
@@ -260,6 +312,24 @@ function renderHome() {
 }
 
 function showHome() { showScreen('home'); renderHome(); }
+
+// ── HOME TABS ──────────────────────────────────────────────────────────
+function switchHomeTab(tab) {
+  document.getElementById('htab-content-vocab').style.display = tab === 'vocab' ? '' : 'none';
+  document.getElementById('htab-content-order').style.display = tab === 'order' ? '' : 'none';
+  document.getElementById('htab-vocab').classList.toggle('active', tab === 'vocab');
+  document.getElementById('htab-order').classList.toggle('active', tab === 'order');
+  if (tab === 'order') updateOrderIntroStats();
+}
+
+function updateOrderIntroStats() {
+  const el = document.getElementById('order-intro-stats');
+  if (!el) return;
+  const sentSet = sets.find(s => s.id === '__sentences__');
+  if (!sentSet) { el.textContent = 'Lädt…'; return; }
+  const n = sentSet.cards.filter(c => tokenizeSentence(c.chinese).length >= 3).length;
+  el.textContent = `${n} Sätze verfügbar`;
+}
 
 // ── SET SCREEN ─────────────────────────────────────────────────────────
 function openSet(set) {
@@ -709,6 +779,199 @@ function endSession() {
   showScreen('end');
 }
 
+// ── ORDER SESSION ──────────────────────────────────────────────────────
+let orderCards   = [];
+let orderIdx     = 0;
+let orderCorrect = 0;
+let orderDragEl  = null;
+let orderTouchGhost = null;
+
+function startOrderSession() {
+  const sentSet = sets.find(s => s.id === '__sentences__');
+  if (!sentSet) { alert('Satzmuster noch nicht geladen.'); return; }
+
+  orderCards = shuffle([...sentSet.cards.filter(c => tokenizeSentence(c.chinese).length >= 3)]);
+  if (!orderCards.length) { alert('Keine Sätze gefunden.'); return; }
+
+  orderIdx = 0; orderCorrect = 0;
+  showScreen('order');
+  document.getElementById('order-body').style.display     = '';
+  document.getElementById('order-end-wrap').style.display = 'none';
+  showOrderCard();
+}
+
+function showOrderCard() {
+  if (orderIdx >= orderCards.length) { endOrderSession(); return; }
+
+  const card     = orderCards[orderIdx];
+  const tokens   = tokenizeSentence(card.chinese);
+  const scrambled = shuffle([...tokens]);
+
+  const total = orderCards.length;
+  document.getElementById('order-counter').textContent      = `${orderIdx + 1} / ${total}`;
+  document.getElementById('order-progress-bar').style.width = `${orderIdx / total * 100}%`;
+  document.getElementById('order-german').textContent       = card.german || getDE(card);
+
+  const src = document.getElementById('order-source');
+  const tgt = document.getElementById('order-target');
+  src.innerHTML = '';
+  tgt.innerHTML = '';
+  tgt.dataset.correct = JSON.stringify(tokens);
+
+  document.getElementById('order-result').style.display    = 'none';
+  document.getElementById('order-check-btn').style.display = '';
+  document.getElementById('order-next-btn').style.display  = 'none';
+
+  scrambled.forEach(w => src.appendChild(makeOrderTile(w)));
+}
+
+function makeOrderTile(word) {
+  const el = document.createElement('div');
+  el.className  = 'order-tile';
+  el.textContent = word;
+  el.draggable  = true;
+  el.dataset.word = word;
+
+  el.addEventListener('click', () => {
+    if (orderDragEl) return;
+    const src = document.getElementById('order-source');
+    const tgt = document.getElementById('order-target');
+    if (el.parentElement === src) tgt.appendChild(el);
+    else src.appendChild(el);
+  });
+
+  el.addEventListener('dragstart', e => {
+    orderDragEl = el;
+    e.dataTransfer.effectAllowed = 'move';
+    requestAnimationFrame(() => el.classList.add('tile-dragging'));
+  });
+  el.addEventListener('dragend', () => {
+    el.classList.remove('tile-dragging');
+    setTimeout(() => { orderDragEl = null; }, 50);
+  });
+
+  setupTileTouch(el);
+  return el;
+}
+
+function getInsertPos(container, cx, cy) {
+  const tiles = [...container.querySelectorAll('.order-tile:not(.tile-dragging)')];
+  return tiles.reduce((best, tile) => {
+    const b   = tile.getBoundingClientRect();
+    const mx  = b.left + b.width / 2;
+    const my  = b.top  + b.height / 2;
+    const before = cy < my - 4 || (Math.abs(cy - my) <= 4 && cx < mx);
+    if (!before) return best;
+    const dist = Math.hypot(cx - mx, cy - my);
+    return dist < best.dist ? { el: tile, dist } : best;
+  }, { el: null, dist: Infinity }).el;
+}
+
+function setupTileTouch(el) {
+  let moved = false;
+  el.addEventListener('touchstart', () => { moved = false; orderDragEl = el; }, { passive: true });
+
+  el.addEventListener('touchmove', e => {
+    e.preventDefault();
+    moved = true;
+    const t = e.touches[0];
+    if (!orderTouchGhost) {
+      orderTouchGhost = el.cloneNode(true);
+      Object.assign(orderTouchGhost.style, {
+        position: 'fixed', pointerEvents: 'none', zIndex: '9999',
+        width: el.offsetWidth + 'px', opacity: '0.85',
+        transform: 'scale(1.08)', transition: 'none'
+      });
+      document.body.appendChild(orderTouchGhost);
+      el.classList.add('tile-dragging');
+    }
+    orderTouchGhost.style.left = (t.clientX - orderTouchGhost.offsetWidth  / 2) + 'px';
+    orderTouchGhost.style.top  = (t.clientY - orderTouchGhost.offsetHeight / 2) + 'px';
+  }, { passive: false });
+
+  el.addEventListener('touchend', e => {
+    if (orderTouchGhost) { orderTouchGhost.remove(); orderTouchGhost = null; }
+    el.classList.remove('tile-dragging');
+
+    if (!moved) {
+      orderDragEl = null;
+      const src = document.getElementById('order-source');
+      const tgt = document.getElementById('order-target');
+      if (el.parentElement === src) tgt.appendChild(el);
+      else src.appendChild(el);
+      return;
+    }
+
+    const t   = e.changedTouches[0];
+    const src = document.getElementById('order-source');
+    const tgt = document.getElementById('order-target');
+
+    const inBox = (area) => {
+      const b = area.getBoundingClientRect();
+      return t.clientX >= b.left && t.clientX <= b.right && t.clientY >= b.top && t.clientY <= b.bottom;
+    };
+    const drop = inBox(tgt) ? tgt : inBox(src) ? src : null;
+    if (drop) {
+      const after = getInsertPos(drop, t.clientX, t.clientY);
+      if (after) drop.insertBefore(el, after);
+      else drop.appendChild(el);
+    }
+    setTimeout(() => { orderDragEl = null; }, 50);
+  });
+}
+
+function checkOrder() {
+  const tgt     = document.getElementById('order-target');
+  const answer  = [...tgt.querySelectorAll('.order-tile')].map(t => t.dataset.word);
+  const correct = JSON.parse(tgt.dataset.correct || '[]');
+  const ok      = JSON.stringify(answer) === JSON.stringify(correct);
+
+  if (ok) orderCorrect++;
+
+  const res = document.getElementById('order-result');
+  res.className = `order-result ${ok ? 'ores-ok' : 'ores-err'}`;
+  if (ok) {
+    res.innerHTML = '✅ Richtig!';
+    [...tgt.querySelectorAll('.order-tile')].forEach(t => t.classList.add('tile-ok'));
+  } else {
+    res.innerHTML = `❌ Richtig: <strong>${correct.join(' ')}</strong>`;
+    tgt.innerHTML = '';
+    correct.forEach(w => {
+      const t = document.createElement('div');
+      t.className = 'order-tile tile-ok';
+      t.textContent = w;
+      tgt.appendChild(t);
+    });
+  }
+  res.style.display = '';
+  document.getElementById('order-check-btn').style.display = 'none';
+  document.getElementById('order-next-btn').style.display  = '';
+}
+
+function orderNextCard() { orderIdx++; showOrderCard(); }
+
+function quitOrder() { showScreen('home'); switchHomeTab('order'); }
+
+function endOrderSession() {
+  document.getElementById('order-progress-bar').style.width = '100%';
+  const total = orderCards.length;
+  const pct   = total > 0 ? Math.round(orderCorrect / total * 100) : 0;
+  document.getElementById('order-end-emoji').textContent = pct === 100 ? '🏆' : pct >= 70 ? '🎉' : '💪';
+  document.getElementById('order-end-title').textContent = pct === 100 ? 'Perfekt!' : pct >= 70 ? 'Gut gemacht!' : 'Weiter üben!';
+  document.getElementById('order-end-stats').innerHTML   =
+    `<strong>${orderCorrect}</strong> / <strong>${total}</strong> richtig &nbsp;·&nbsp; <strong>${pct}%</strong>`;
+  document.getElementById('order-body').style.display     = 'none';
+  document.getElementById('order-end-wrap').style.display = '';
+}
+
+function restartOrderSession() {
+  orderIdx = 0; orderCorrect = 0;
+  orderCards = shuffle([...orderCards]);
+  document.getElementById('order-body').style.display     = '';
+  document.getElementById('order-end-wrap').style.display = 'none';
+  showOrderCard();
+}
+
 // ── UTILS ──────────────────────────────────────────────────────────────
 function showScreen(name) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
@@ -751,4 +1014,18 @@ document.addEventListener('keydown', e => {
 loadProgress();
 showHome();
 loadMasterVocab();
+loadSentencesVocab();
 loadProgressFile();
+
+// Dragover für Satzstellung-Zonen
+['order-source', 'order-target'].forEach(id => {
+  const area = document.getElementById(id);
+  if (!area) return;
+  area.addEventListener('dragover', e => {
+    e.preventDefault();
+    if (!orderDragEl) return;
+    const after = getInsertPos(area, e.clientX, e.clientY);
+    if (after) area.insertBefore(orderDragEl, after);
+    else area.appendChild(orderDragEl);
+  });
+});

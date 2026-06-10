@@ -1,0 +1,608 @@
+{
+  "id": "__sentences__",
+  "name": "Satzmuster (L1–L3)",
+  "updated": "2026-06-10",
+  "total": 100,
+  "vocab": [
+    {
+      "chinese": "你好！",
+      "pinyin": "Nǐ hǎo!",
+      "german": "Hallo!",
+      "category": "Begrüßung"
+    },
+    {
+      "chinese": "你好吗？",
+      "pinyin": "Nǐ hǎo ma?",
+      "german": "Wie geht es dir?",
+      "category": "Begrüßung"
+    },
+    {
+      "chinese": "我很好，谢谢！",
+      "pinyin": "Wǒ hěn hǎo, xièxie!",
+      "german": "Mir geht es gut, danke!",
+      "category": "Begrüßung"
+    },
+    {
+      "chinese": "还不错，你呢？",
+      "pinyin": "Hái bù cuò, nǐ ne?",
+      "german": "Ganz gut, und du?",
+      "category": "Begrüßung"
+    },
+    {
+      "chinese": "再见！",
+      "pinyin": "Zàijiàn!",
+      "german": "Auf Wiedersehen!",
+      "category": "Begrüßung"
+    },
+    {
+      "chinese": "拜拜！",
+      "pinyin": "Bàibài!",
+      "german": "Tschüss!",
+      "category": "Begrüßung"
+    },
+    {
+      "chinese": "你叫什么名字？",
+      "pinyin": "Nǐ jiào shénme míngzi?",
+      "german": "Wie heißt du?",
+      "category": "Name"
+    },
+    {
+      "chinese": "我叫王明。",
+      "pinyin": "Wǒ jiào Wáng Míng.",
+      "german": "Ich heiße Wang Ming.",
+      "category": "Name"
+    },
+    {
+      "chinese": "您贵姓？",
+      "pinyin": "Nín guì xìng?",
+      "german": "Wie ist Ihr werter Nachname?",
+      "category": "Name"
+    },
+    {
+      "chinese": "我姓王。",
+      "pinyin": "Wǒ xìng Wáng.",
+      "german": "Mein Nachname ist Wang.",
+      "category": "Name"
+    },
+    {
+      "chinese": "请问，你叫什么名字？",
+      "pinyin": "Qǐngwèn, nǐ jiào shénme míngzi?",
+      "german": "Darf ich fragen, wie du heißt?",
+      "category": "Name"
+    },
+    {
+      "chinese": "很高兴认识你！",
+      "pinyin": "Hěn gāoxìng rènshì nǐ!",
+      "german": "Schön, dich kennenzulernen!",
+      "category": "Name"
+    },
+    {
+      "chinese": "我是学生。",
+      "pinyin": "Wǒ shì xuésheng.",
+      "german": "Ich bin Student.",
+      "category": "Identität"
+    },
+    {
+      "chinese": "你是学生吗？",
+      "pinyin": "Nǐ shì xuésheng ma?",
+      "german": "Bist du Student?",
+      "category": "Identität"
+    },
+    {
+      "chinese": "不，我不是学生。",
+      "pinyin": "Bù, wǒ bù shì xuésheng.",
+      "german": "Nein, ich bin kein Student.",
+      "category": "Identität"
+    },
+    {
+      "chinese": "他是老师。",
+      "pinyin": "Tā shì lǎoshī.",
+      "german": "Er ist Lehrer.",
+      "category": "Identität"
+    },
+    {
+      "chinese": "她是秘书。",
+      "pinyin": "Tā shì mìshū.",
+      "german": "Sie ist Sekretärin.",
+      "category": "Identität"
+    },
+    {
+      "chinese": "你是学生吧？",
+      "pinyin": "Nǐ shì xuésheng ba?",
+      "german": "Du bist Student, oder?",
+      "category": "Identität"
+    },
+    {
+      "chinese": "你是谁？",
+      "pinyin": "Nǐ shì shuí?",
+      "german": "Wer bist du?",
+      "category": "Identität"
+    },
+    {
+      "chinese": "你从哪儿来？",
+      "pinyin": "Nǐ cóng nǎr lái?",
+      "german": "Woher kommst du?",
+      "category": "Herkunft"
+    },
+    {
+      "chinese": "我从德国来。",
+      "pinyin": "Wǒ cóng Déguó lái.",
+      "german": "Ich komme aus Deutschland.",
+      "category": "Herkunft"
+    },
+    {
+      "chinese": "他从中国来。",
+      "pinyin": "Tā cóng Zhōngguó lái.",
+      "german": "Er kommt aus China.",
+      "category": "Herkunft"
+    },
+    {
+      "chinese": "你是哪国人？",
+      "pinyin": "Nǐ shì nǎ guó rén?",
+      "german": "Welcher Nationalität bist du?",
+      "category": "Herkunft"
+    },
+    {
+      "chinese": "我是德国人。",
+      "pinyin": "Wǒ shì Déguórén.",
+      "german": "Ich bin Deutscher.",
+      "category": "Herkunft"
+    },
+    {
+      "chinese": "他是中国人。",
+      "pinyin": "Tā shì Zhōngguórén.",
+      "german": "Er ist Chinese.",
+      "category": "Herkunft"
+    },
+    {
+      "chinese": "她是日本人吗？",
+      "pinyin": "Tā shì Rìběnrén ma?",
+      "german": "Ist sie Japanerin?",
+      "category": "Herkunft"
+    },
+    {
+      "chinese": "对，我是中国人。",
+      "pinyin": "Duì, wǒ shì Zhōngguórén.",
+      "german": "Richtig, ich bin Chinese.",
+      "category": "Herkunft"
+    },
+    {
+      "chinese": "你会说汉语吗？",
+      "pinyin": "Nǐ huì shuō Hànyǔ ma?",
+      "german": "Kannst du Chinesisch sprechen?",
+      "category": "Sprachen"
+    },
+    {
+      "chinese": "我会说中文。",
+      "pinyin": "Wǒ huì shuō Zhōngwén.",
+      "german": "Ich kann Chinesisch sprechen.",
+      "category": "Sprachen"
+    },
+    {
+      "chinese": "我不会说日语。",
+      "pinyin": "Wǒ bù huì shuō Rìyǔ.",
+      "german": "Ich kann kein Japanisch sprechen.",
+      "category": "Sprachen"
+    },
+    {
+      "chinese": "对不起，我不会说法语。",
+      "pinyin": "Duìbuqǐ, wǒ bù huì shuō Fǎyǔ.",
+      "german": "Entschuldigung, ich kann kein Französisch.",
+      "category": "Sprachen"
+    },
+    {
+      "chinese": "我学中文。",
+      "pinyin": "Wǒ xué Zhōngwén.",
+      "german": "Ich lerne Chinesisch.",
+      "category": "Sprachen"
+    },
+    {
+      "chinese": "你学什么外语？",
+      "pinyin": "Nǐ xué shénme wàiyǔ?",
+      "german": "Welche Fremdsprache lernst du?",
+      "category": "Sprachen"
+    },
+    {
+      "chinese": "你忙吗？",
+      "pinyin": "Nǐ máng ma?",
+      "german": "Bist du beschäftigt?",
+      "category": "Befinden"
+    },
+    {
+      "chinese": "我很忙。",
+      "pinyin": "Wǒ hěn máng.",
+      "german": "Ich bin sehr beschäftigt.",
+      "category": "Befinden"
+    },
+    {
+      "chinese": "我不忙。",
+      "pinyin": "Wǒ bù máng.",
+      "german": "Ich bin nicht beschäftigt.",
+      "category": "Befinden"
+    },
+    {
+      "chinese": "你饿吗？",
+      "pinyin": "Nǐ è ma?",
+      "german": "Bist du hungrig?",
+      "category": "Befinden"
+    },
+    {
+      "chinese": "我很累。",
+      "pinyin": "Wǒ hěn lèi.",
+      "german": "Ich bin sehr müde.",
+      "category": "Befinden"
+    },
+    {
+      "chinese": "我很闲。",
+      "pinyin": "Wǒ hěn xián.",
+      "german": "Ich habe viel Zeit.",
+      "category": "Befinden"
+    },
+    {
+      "chinese": "这是我的朋友。",
+      "pinyin": "Zhè shì wǒ de péngyou.",
+      "german": "Das ist mein Freund.",
+      "category": "Beziehungen"
+    },
+    {
+      "chinese": "他是我的同学。",
+      "pinyin": "Tā shì wǒ de tóngxué.",
+      "german": "Er ist mein Kommilitone.",
+      "category": "Beziehungen"
+    },
+    {
+      "chinese": "她是我的老师。",
+      "pinyin": "Tā shì wǒ de lǎoshī.",
+      "german": "Sie ist meine Lehrerin.",
+      "category": "Beziehungen"
+    },
+    {
+      "chinese": "这是你的名片吗？",
+      "pinyin": "Zhè shì nǐ de míngpiàn ma?",
+      "german": "Ist das deine Visitenkarte?",
+      "category": "Beziehungen"
+    },
+    {
+      "chinese": "请介绍一下！",
+      "pinyin": "Qǐng jièshào yíxià!",
+      "german": "Bitte stell dich vor!",
+      "category": "Beziehungen"
+    },
+    {
+      "chinese": "你在哪儿工作？",
+      "pinyin": "Nǐ zài nǎr gōngzuò?",
+      "german": "Wo arbeitest du?",
+      "category": "Ort"
+    },
+    {
+      "chinese": "我在大学工作。",
+      "pinyin": "Wǒ zài dàxué gōngzuò.",
+      "german": "Ich arbeite an der Universität.",
+      "category": "Ort"
+    },
+    {
+      "chinese": "他在公司工作。",
+      "pinyin": "Tā zài gōngsī gōngzuò.",
+      "german": "Er arbeitet bei einer Firma.",
+      "category": "Ort"
+    },
+    {
+      "chinese": "北京在中国。",
+      "pinyin": "Běijīng zài Zhōngguó.",
+      "german": "Peking liegt in China.",
+      "category": "Ort"
+    },
+    {
+      "chinese": "你在哪儿学习汉语？",
+      "pinyin": "Nǐ zài nǎr xuéxí Hànyǔ?",
+      "german": "Wo lernst du Chinesisch?",
+      "category": "Ort"
+    },
+    {
+      "chinese": "我们都是学生。",
+      "pinyin": "Wǒmen dōu shì xuésheng.",
+      "german": "Wir sind alle Studenten.",
+      "category": "Plural"
+    },
+    {
+      "chinese": "你们好！",
+      "pinyin": "Nǐmen hǎo!",
+      "german": "Hallo an alle!",
+      "category": "Plural"
+    },
+    {
+      "chinese": "他们都是老师。",
+      "pinyin": "Tāmen dōu shì lǎoshī.",
+      "german": "Sie sind alle Lehrer.",
+      "category": "Plural"
+    },
+    {
+      "chinese": "我和他都是学生。",
+      "pinyin": "Wǒ hé tā dōu shì xuésheng.",
+      "german": "Er und ich sind beide Studenten.",
+      "category": "Plural"
+    },
+    {
+      "chinese": "她从美国来。",
+      "pinyin": "Tā cóng Měiguó lái.",
+      "german": "Sie kommt aus Amerika.",
+      "category": "Herkunft"
+    },
+    {
+      "chinese": "你从日本来吗？",
+      "pinyin": "Nǐ cóng Rìběn lái ma?",
+      "german": "Kommst du aus Japan?",
+      "category": "Herkunft"
+    },
+    {
+      "chinese": "我不是日本人，我是德国人。",
+      "pinyin": "Wǒ bù shì Rìběnrén, wǒ shì Déguórén.",
+      "german": "Ich bin kein Japaner, ich bin Deutscher.",
+      "category": "Herkunft"
+    },
+    {
+      "chinese": "上海在中国。",
+      "pinyin": "Shànghǎi zài Zhōngguó.",
+      "german": "Shanghai liegt in China.",
+      "category": "Herkunft"
+    },
+    {
+      "chinese": "他是美国人吗？",
+      "pinyin": "Tā shì Měiguórén ma?",
+      "german": "Ist er Amerikaner?",
+      "category": "Herkunft"
+    },
+    {
+      "chinese": "我是英国人。",
+      "pinyin": "Wǒ shì Yīngguórén.",
+      "german": "Ich bin Brite.",
+      "category": "Herkunft"
+    },
+    {
+      "chinese": "她从法国来。",
+      "pinyin": "Tā cóng Fǎguó lái.",
+      "german": "Sie kommt aus Frankreich.",
+      "category": "Herkunft"
+    },
+    {
+      "chinese": "他不是中国人，他是日本人。",
+      "pinyin": "Tā bù shì Zhōngguórén, tā shì Rìběnrén.",
+      "german": "Er ist kein Chinese, er ist Japaner.",
+      "category": "Herkunft"
+    },
+    {
+      "chinese": "我是工程师。",
+      "pinyin": "Wǒ shì gōngchéngshī.",
+      "german": "Ich bin Ingenieur.",
+      "category": "Identität"
+    },
+    {
+      "chinese": "他不是学生，他是老师。",
+      "pinyin": "Tā bù shì xuésheng, tā shì lǎoshī.",
+      "german": "Er ist kein Student, er ist Lehrer.",
+      "category": "Identität"
+    },
+    {
+      "chinese": "她也是学生。",
+      "pinyin": "Tā yě shì xuésheng.",
+      "german": "Sie ist auch Studentin.",
+      "category": "Identität"
+    },
+    {
+      "chinese": "你是老师吗？",
+      "pinyin": "Nǐ shì lǎoshī ma?",
+      "german": "Bist du Lehrer?",
+      "category": "Identität"
+    },
+    {
+      "chinese": "我不是老师，我是学生。",
+      "pinyin": "Wǒ bù shì lǎoshī, wǒ shì xuésheng.",
+      "german": "Ich bin kein Lehrer, ich bin Student.",
+      "category": "Identität"
+    },
+    {
+      "chinese": "他是工程师吧？",
+      "pinyin": "Tā shì gōngchéngshī ba?",
+      "german": "Er ist Ingenieur, oder?",
+      "category": "Identität"
+    },
+    {
+      "chinese": "我也是学生。",
+      "pinyin": "Wǒ yě shì xuésheng.",
+      "german": "Ich bin auch Student.",
+      "category": "Identität"
+    },
+    {
+      "chinese": "她是老师吗？",
+      "pinyin": "Tā shì lǎoshī ma?",
+      "german": "Ist sie Lehrerin?",
+      "category": "Identität"
+    },
+    {
+      "chinese": "你会说英语吗？",
+      "pinyin": "Nǐ huì shuō Yīngyǔ ma?",
+      "german": "Kannst du Englisch sprechen?",
+      "category": "Sprachen"
+    },
+    {
+      "chinese": "我会说德语。",
+      "pinyin": "Wǒ huì shuō Déyǔ.",
+      "german": "Ich kann Deutsch sprechen.",
+      "category": "Sprachen"
+    },
+    {
+      "chinese": "他学英语。",
+      "pinyin": "Tā xué Yīngyǔ.",
+      "german": "Er lernt Englisch.",
+      "category": "Sprachen"
+    },
+    {
+      "chinese": "她不会说德语。",
+      "pinyin": "Tā bù huì shuō Déyǔ.",
+      "german": "Sie kann kein Deutsch.",
+      "category": "Sprachen"
+    },
+    {
+      "chinese": "我也学汉语。",
+      "pinyin": "Wǒ yě xué Hànyǔ.",
+      "german": "Ich lerne auch Chinesisch.",
+      "category": "Sprachen"
+    },
+    {
+      "chinese": "你学汉语吗？",
+      "pinyin": "Nǐ xué Hànyǔ ma?",
+      "german": "Lernst du Chinesisch?",
+      "category": "Sprachen"
+    },
+    {
+      "chinese": "我爱中文！",
+      "pinyin": "Wǒ ài Zhōngwén!",
+      "german": "Ich liebe Chinesisch!",
+      "category": "Sprachen"
+    },
+    {
+      "chinese": "我不会说法语。",
+      "pinyin": "Wǒ bù huì shuō Fǎyǔ.",
+      "german": "Ich kann kein Französisch.",
+      "category": "Sprachen"
+    },
+    {
+      "chinese": "他是我的哥哥。",
+      "pinyin": "Tā shì wǒ de gēge.",
+      "german": "Er ist mein älterer Bruder.",
+      "category": "Beziehungen"
+    },
+    {
+      "chinese": "她是我的姐姐。",
+      "pinyin": "Tā shì wǒ de jiějie.",
+      "german": "Sie ist meine ältere Schwester.",
+      "category": "Beziehungen"
+    },
+    {
+      "chinese": "那是你的朋友吗？",
+      "pinyin": "Nà shì nǐ de péngyou ma?",
+      "german": "Ist das dein Freund?",
+      "category": "Beziehungen"
+    },
+    {
+      "chinese": "他认识你吗？",
+      "pinyin": "Tā rènshì nǐ ma?",
+      "german": "Kennt er dich?",
+      "category": "Beziehungen"
+    },
+    {
+      "chinese": "我不认识他。",
+      "pinyin": "Wǒ bù rènshì tā.",
+      "german": "Ich kenne ihn nicht.",
+      "category": "Beziehungen"
+    },
+    {
+      "chinese": "这是我的名片。",
+      "pinyin": "Zhè shì wǒ de míngpiàn.",
+      "german": "Das ist meine Visitenkarte.",
+      "category": "Beziehungen"
+    },
+    {
+      "chinese": "他也是我的朋友。",
+      "pinyin": "Tā yě shì wǒ de péngyou.",
+      "german": "Er ist auch mein Freund.",
+      "category": "Beziehungen"
+    },
+    {
+      "chinese": "请问，你认识她吗？",
+      "pinyin": "Qǐngwèn, nǐ rènshì tā ma?",
+      "german": "Darf ich fragen, kennst du sie?",
+      "category": "Beziehungen"
+    },
+    {
+      "chinese": "我也很累。",
+      "pinyin": "Wǒ yě hěn lèi.",
+      "german": "Ich bin auch sehr müde.",
+      "category": "Befinden"
+    },
+    {
+      "chinese": "你不忙吗？",
+      "pinyin": "Nǐ bù máng ma?",
+      "german": "Bist du nicht beschäftigt?",
+      "category": "Befinden"
+    },
+    {
+      "chinese": "他不饿。",
+      "pinyin": "Tā bù è.",
+      "german": "Er ist nicht hungrig.",
+      "category": "Befinden"
+    },
+    {
+      "chinese": "我们很高兴。",
+      "pinyin": "Wǒmen hěn gāoxìng.",
+      "german": "Wir sind sehr froh.",
+      "category": "Befinden"
+    },
+    {
+      "chinese": "你高兴吗？",
+      "pinyin": "Nǐ gāoxìng ma?",
+      "german": "Bist du froh?",
+      "category": "Befinden"
+    },
+    {
+      "chinese": "他不累。",
+      "pinyin": "Tā bù lèi.",
+      "german": "Er ist nicht müde.",
+      "category": "Befinden"
+    },
+    {
+      "chinese": "我在北京学习汉语。",
+      "pinyin": "Wǒ zài Běijīng xuéxí Hànyǔ.",
+      "german": "Ich lerne Chinesisch in Peking.",
+      "category": "Ort"
+    },
+    {
+      "chinese": "他在大学学习。",
+      "pinyin": "Tā zài dàxué xuéxí.",
+      "german": "Er studiert an der Universität.",
+      "category": "Ort"
+    },
+    {
+      "chinese": "你在哪儿学习？",
+      "pinyin": "Nǐ zài nǎr xuéxí?",
+      "german": "Wo lernst du?",
+      "category": "Ort"
+    },
+    {
+      "chinese": "她也在公司工作。",
+      "pinyin": "Tā yě zài gōngsī gōngzuò.",
+      "german": "Sie arbeitet auch bei einer Firma.",
+      "category": "Ort"
+    },
+    {
+      "chinese": "这是什么？",
+      "pinyin": "Zhè shì shénme?",
+      "german": "Was ist das?",
+      "category": "Verschiedenes"
+    },
+    {
+      "chinese": "那是什么？",
+      "pinyin": "Nà shì shénme?",
+      "german": "Was ist das dort?",
+      "category": "Verschiedenes"
+    },
+    {
+      "chinese": "请问，您是老师吗？",
+      "pinyin": "Qǐngwèn, nín shì lǎoshī ma?",
+      "german": "Darf ich fragen, sind Sie Lehrer?",
+      "category": "Verschiedenes"
+    },
+    {
+      "chinese": "我认识他。",
+      "pinyin": "Wǒ rènshì tā.",
+      "german": "Ich kenne ihn.",
+      "category": "Verschiedenes"
+    },
+    {
+      "chinese": "你们也是学生吗？",
+      "pinyin": "Nǐmen yě shì xuésheng ma?",
+      "german": "Seid ihr auch Studenten?",
+      "category": "Verschiedenes"
+    }
+  ]
+}
